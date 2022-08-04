@@ -1,0 +1,400 @@
+\documentclass{book}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {Figures/} }
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\usepackage{natbib,stfloats}
+
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\usetikzlibrary{patterns}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[RO]{\textsl{\rightmark}} 
+\fancyhead[LE]{\textsl{\leftmark}} 
+
+\fancyfoot{} 
+\fancyfoot[L]{T.B. Fraga (2022). Gestão de Demanda e Controle de Estoque.}
+\fancyfoot[R]{\thepage}
+
+\definecolor{cambridgeblue}{rgb}{0.64, 0.76, 0.68}
+\definecolor{camel}{rgb}{0.76, 0.6, 0.42}
+\definecolor{camouflagegreen}{rgb}{0.47, 0.53, 0.42}
+\definecolor{desertsand}{rgb}{0.93, 0.79, 0.69}
+
+\newenvironment{exerciseblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=camel!20,colframe=camouflagegreen,%
+    colbacklower=camouflagegreen!75!camel!20,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{exempleblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=camel!20,colframe=Brown!70,%
+    colbacklower=camouflagegreen!75!camel!20,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{algorithmblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=camel!20,colframe=Brown!40,%
+    colbacklower=camouflagegreen!75!camel!20,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{dedication}
+  {\clearpage           % we want a new page
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top 
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
+
+% para construção de diagramas
+
+\tikzstyle{place}=[circle,draw=camouflagegreen!80,fill=desertsand!20,thick]
+\tikzstyle{Ret}=[rectangle,draw=camouflagegreen!80,fill=desertsand!20,thick]
+\tikzstyle{RoundRet}=[rectangle,draw=camouflagegreen!80,fill=desertsand!20,thick, rounded corners]
+
+\begin{document}
+
+Livro em processo de elaboração. \\
+
+Título: Gestão de Demanda e Controle de Estoque.\\
+
+Autora: Tatiana Balbi Fraga. \\
+
+Profa. do Núcleo de Tecnologia da UFPE. \\
+
+Caso tenha interesse em participar da elaboração deste livro, enviar e-mail para: tatiana.balbi@ufpe.br.\\
+
+O mesmo endereço de e-mail poderá ser utilizado para críticas e sugestões. Desde já agradeço por qualquer contribuição. \\
+
+O conteúdo apresentado neste livro estará sendo modificado ao longo de sua elaboração, caso o mesmo seja consultado para elaboração de algum trabalho, favor citar como referência o título, a autora, a data da consulta e o endereço da versão consultada no github. \\
+
+\chapter{Classificação multicritério para itens de inventário}
+
+No intuito de oferecer um pronto atendimento aos clientes, grande parte das empresas estocam alguns produtos que comercializam. Contudo, o estoque apresenta uma série de preocupações tais como a necessidade de deixar um grande capital parado e o uso de amplo espaço para estocagem. Assim torna-se necessária uma correta identificação dos níveis adequados de estoque para os diferentes produtos através de estudos que buscam um ponto de equilíbrio entre as reais necessidades de estocagem e os custos envolvidos. Entre os esforço necessários para a definição de um ponto de equilíbrio podemos citar os estudos de demanda e a busca pela otimização da utilização do espaço disponível para estocagem. Como muitas organizações comercializam centenas ou até mesmo milhares de itens de inventário, muitas vezes determinar o nível adequado de estoque para cada item se torna excessivamente custoso ou até mesmo impraticável. Portanto uma prática comum consiste em classificar os diversos itens dando a atenção necessária apenas aos itens considerados mais importantes. Entre os métodos de classificação mais conhecidos está o método de Análise ABC.
+
+
+
+\chapter{Identificação de padrões de demanda}
+
+A previsão de demanda é essencial para o bom planejamento em qualquer empresa. Através de uma boa previsão é possível, entre outras coisas, controlar melhor os níveis de estoque, reduzindo custos e oferecendo um melhor nível de serviço aos clientes. 
+
+Conforme mostra \cite{MakridakisHibon2000}, a literatura apresenta uma grande variedade de metodologias que podem ser utilizadas para previões de demanda, sendo que a performance dos distintos modelos de previsão varia de acordo a natureza dos dados e um modelo que gera bons resultados para determinada classe de itens de uma empresa pode gerar previsões ruins para outros itens dessa mesma empresa.
+
+Uma estratégia natural utilizada para identificar o modelo de previsão adequado pra cada item consiste em comparar a performance dos distintos modelos candidatos utilizando dados históricos de vendas do item \citep{UlrichEtAl2022}. Contudo, como geralmente as empresas produzem e/ou comercializam uma grande variedade de itens, essa estratégia acaba se tornando um esforço considerável. 
+
+De acordo com \cite{UlrichEtAl2022}, uma opção viável consiste em agrupar os itens de acordo com seus padrões de demanda, para posteriormente identificar o modelo de previsão adequado pra cada grupo e não mais para cada item individual. Esse capítulo apresenta, de forma bem detalhada, algumas das principais metodologias utilizadas para identificação de padrões de demanda e agrupamento dos itens de acordo com os padrões identificados.
+
+\section{Classificação ABC}
+
+O princípio de Pareto atenta para o fato de que, em muitas circunstâncias, um pequeno número de fatores são responsáveis pela maior parte impácto nos resultados \citep{HarveySotardi2018}. Este princípio é geralmente descrito como a regra 80-20, ou seja, quando 20\% dos fatores são responsáveis por 80\% do resultado. 
+
+
+
+\section{Padrões de demanda}
+
+'Os padrões de demanda são resultados da variação da demanda com o tempo, ou seja, do crescimento ou declínio de taxas de demanda, sazonalidades e flutuações gerais causadas por diversos fatores' (\cite{Ballou2001} apud \cite{WernerEtAl2006}). 
+
+De acordo com \cite{Ballou2006}, quando a demanda apresenta comportamento regular, os padrões de demanda podem ser divididos em compo­nentes de tendência, sazonais ou aleatórios. Já nos casos em que a demanda de determinados itens é inter­mitente, em função do baixo volume geral e da incerte­za quanto a quando e em que nível essa demanda ocor­rerá, a série de tempo é chamada de incerta, ou irregu­lar.
+
+\cite{BoylanEtAl2008} distribuem os padrões de demanda entre normais, onde a demanda pode ser representada por uma distribuição normal, e não normais, no caso em que isso não é possível. De acordo com os autores, os padrões de demanda não normais podem ser classificados da seguinte forma:
+
+\begin{itemize}
+  \item um item de \emph{demanda intermitente (intermittent)} é um item com ocorrências de demanda pouco frequêntes;
+  \item um item de \emph{demanda de movimento lento (slow moving)} é um item cuja demanda média por período é baixa. Isso pode ser devido a ocorrências de demanda pouco frequentes, tamanhos médios de demanda baixos ou ambos;
+  \item um item de \emph{demanda errática (erratic)} é um item cujo tamanho de demanda é altamente variável;
+  \item um item de \emph{demanda esporádica (lumpy)} é um item intermitente para o qual a demanda, quando ocorre, é altamente variável.; e
+  \item um item de \emph{demanda agregada (clumped)} é um item intermitente para o qual a demanda, quando ocorre, é constante (ou quase constante).
+\end{itemize}
+
+Apesar da importância da identificação dos padrões de demanda para identificação dos métodos adequados de previsão, poucos autores tratam deste assunto e poucas técnicas são apresentadas na literatura para essa finalidade.
+
+\cite{BusingerRead1999} aplicam um sistema de agrupamento de itens utilizando um diagrama de plotagem em estrela considerando oito características dos dados de séries temporais: coeficiente de variação, número de zeros, tendência, picos (outliers), sazonalidade, corridas, assimetria e autocorrelação.
+
+O coeficiente de variação $(CV)$ informa a variabilidade em relação à média. Essa medida adimensional informa o nível de dispersão: quanto mais alto for o $(CV)$, mais alta é a dispersão:
+
+\begin{equation}
+CV = \frac{s}{\bar{i}}
+\end{equation}
+
+onde: 
+
+$\bar{i}$ é a média dos valores considerados, e
+
+$s$ é o desvio padrão 
+
+\begin{equation}
+s = \sqrt{ \frac{1}{N} \sum_{i=1}^{N}{(i-\bar{i})^2}}
+\end{equation}
+
+O número de zeros $(NZ)$ é uma medida que indica o número de períodos com demanda zero (nula) dentro de determinado intervalo de tempo. 
+
+\begin{equation}
+NZ = \sum_{i=1}^{N}{I(y_i=0)}
+\end{equation}
+
+Onde $I(A)=1$, se $A$ é verdadeiro, e $I(A)=0$, se $A$ é falso.
+
+Essa medida é, em alguns casos, associada à intermitência. Sendo $BP$ um valor de corte, se $(NZ\geq BP)$ então a demanda é considerada intermitente \citep{BoylanEtAl2008}.
+
+A tendência $(T)$ apresenta um padrão de variação suave e temporário na demanda. Para cáculo da tendência, \cite{BusingerRead1999} dividem os dados avaliados em terços e calculam a tendência usando a seguinte expressão:
+
+\begin{equation}
+T = \frac{(Y_U - Y_L)}{(Y_{(\frac{5}{6})} - Y_{(\frac{1}{6})})}
+\end{equation}
+
+Onde $Y_U$ e $Y_L$ representam as medianas dos terços extremos, sendo $L$ o terço inferior, e $U$ o terço superior. Observe que $-1 \geq T \leq 1$.
+
+Picos $(P)$ é uma característica que informa sobre padrões nos dados temporais que podem representar anomalias ou dados súbitos.
+
+\begin{equation}
+P = \sum_{i=1}^{N}{I(d_i > 2)}
+\end{equation}
+
+onde:
+
+\begin{equation}
+d_i = \frac{y_i - y_{T}}{s_{T}}
+\end{equation}
+
+sendo $y_{T}$ e $s_{T}$, respectivamente, a média e o desvio padrão aparados (i.e., após retirar 20\% dos dados da amostra, sendo 10\% referente aos menores valores e 10\% referente aos maiores valores).
+
+A sazonalidade informa comportamentos que se repetem a cada ciclo (normalmente de 3 meses). \cite{BusingerRead1999} represetam a sazonalidade através da seguinte medida adimensional:
+
+\begin{equation}
+SS = 1 - \frac{ss_{w}}{ss_{T}}
+\end{equation}
+
+onde:
+
+\begin{equation}
+ss_{w} = \sum_{i=1}^{4}\sum_{j=i}^{n_i}{x_{ij}}
+\end{equation}
+
+e
+
+\begin{equation}
+ss_{T} = \sum_{i}\sum_{j}{(x_{ij}-\bar{x})^2}
+\end{equation}
+
+sendo:
+
+\begin{equation}
+\bar{x_i} = \frac{1}{n_i} \sum_{j=1}^{n_i}{x_{ij}}
+\end{equation}
+
+e
+
+\begin{equation}
+\bar{x} = \frac{1}{n} \sum_{i=1}^{4}{n_i \bar{x_i}}
+\end{equation}
+
+tal que: 
+
+$y_{i}^w$ representa os dados winsorizados (i.e. após retirar 20\% dos dados da amostra, sendo 10\% referente aos menores valores e 10\% referente aos maiores valores, substituindo esses dados, respectivamente, pelo menor e pelo maior valor dentro do intervalo de dados restantes (\%80 dos dados)); 
+
+$n=4k+r$ representa o número total de períodos para $r = 0, 1, 2, 3$, sendo o período $(n_i)$, é definido por:
+
+\begin{equation}
+n_i = 
+\begin{cases}
+4k, \ \quad \mathrm{se} \quad r =0 \\
+4k + i, \quad \mathrm{se} \quad r > 0
+\end{cases}
+\end{equation}
+
+\begin{equation}
+x_{ij} = y_{i+4(j-1)}^w \quad i = 1,...,4 \quad j=1,...,k
+\end{equation}
+
+e
+
+\begin{equation}
+x_{i(k+1)} = y_{n_i}^w \quad i = 1,...,r \quad r>0
+\end{equation}
+
+De acordo com \cite{BusingerRead1999}, a característica corrida representa um intervalo no qual observações sucessivas ocorrem todas no mesmo lado da mediana do processo. \cite{BusingerRead1999} utilizam o número de corridas acima e abaixo da mediana. Os autores afirmam que um valor baixo para o número total de corridas pode confirmar uma tendência; enquanto que um valor alto sugere agrupamento ou outro comportamento oscilatório.
+
+\begin{equation}
+Run = \frac{|R - E[R]|}{\sqrt{Var(R)}}
+\end{equation}
+
+onde: 
+
+R representa a soma dos números de corridas abaixo e acima da mediana (após exclusão dos valores iguais à mediana),
+
+\begin{equation}
+E[R] = 1 + \frac{2n_1n_2}{n_1 + n_2}
+\end{equation}
+
+\begin{equation}
+Var(R) = \frac{2n_1n_2(2n_1n_2 - n_1 - n_2)}{(n_1 + n_2)^2(n_1+n_2-1)}
+\end{equation}
+
+sendo:
+
+$n_1$ o número total de observação acima da mediana; e
+
+$n_2$ o número total de observação abaixo da mediana.
+
+A assimetria $(A)$ é a razão entre a média aritmética $(\bar{y})$ e a mediana $(m)$.
+
+\begin{equation}
+A = \frac{\bar{y}}{m}
+\end{equation}
+
+Valores de $A$ maiores que 1, indicam uma assimetria positiva, e valores de $A$ menores do que 1, indicam uma assimentria negativa.
+
+A correlação $CR$ indica a relação entre dois semestres subsequentes:
+
+\begin{equation}
+CR = \frac{|RVN-2|}{\sigma}
+\end{equation}
+
+onde:
+
+\begin{equation}
+\sigma^2 = \frac{4(n-2)(5n^2-2n-9}{5n(n+1)(n-1)^2}
+\end{equation}
+
+\begin{equation}
+RVN = \frac{12NM}{n(n^2-1)}
+\end{equation}
+
+\begin{equation}
+NM = \sum_{i=1}^{n-1}{[r_i-r_{i+1}]^2}
+\end{equation}
+
+$r_i$ representa o rank de $y_i$.
+
+Após calculadas, as características coeficiente de variação, número de zeros, tendência, picos (outliers), sazonalidade, corridas, assimetria e autocorrelação são utilizadas por \cite{BusingerRead1999} para agurpamento dos itens, sendo então identificado qual modelo ARIMA é mais adequado para cada grupo. 
+
+\cite{Williams1984} apresenta um esquema para classificação da demanda em suave (smooth), de movimento lento, ou esporádica, particionando a variabilidade da demanda durante um lead time $(C_{LTD}^{2})$ em suas partes causais constituintes: variabilidade dos números de pedidos $(\frac{C_{n}^{2}}{\bar{L}})$, variabilidade dos tamanhos dos pedidos $(\frac{C_{x}^{2}}{\bar{n}\bar{L}})$ e variabilidade dos prazos de entrega $(C_{L}^{2})$. 
+
+\begin{equation}
+C_{LTD}^{2} = \frac{C_{n}^{2}}{\bar{L}} + \frac{C_{x}^{2}}{\bar{n}\bar{L}} + C_{L}^{2}
+\end{equation}
+
+onde:
+
+$n$ representa os números de pedidos que chegam em unidades de tempo sucessivas (variáveis randômicas independetes e identicamente distribuídas (IIDRVs), com média $\bar{n}$ e variância $var(n)$), \\
+
+$x$ representa os tamanhos dos pedidos (IIDRVs, com média $\bar{x}$ e variância $var(x)$),  \\
+
+$L$ representa os prazos de entrega (IIDRVs, com média $\bar{L}$ e variância $var(L)$)), e \\
+
+$C_{i}$ representa o coeficiente de variação de $i$. \\
+
+Tal esquema foi posteriomente revisado por \cite{EavesKingsman2004}, considerando também o padrão de demanda irregular. A classificação adaptada por pelos autores é apresentada na tabela a seguir.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c c c}
+\cline {1-4}
+$\frac{C_{n}^{2}}{\bar{L}}$ & $\frac{C_{x}^{2}}{\bar{n}\bar{L}}$ & $C_{L}^{2}$ & padrão de demanda \\ \cline {1-4}
+baixo & baixo &  & suave   \\ 
+baixo & alto  &  & irregular   \\ 
+alto  & baixo &  & de movimento lento   \\
+alto  & alto  & baixo & intermitente   \\
+alto  & alto  & alto  & atamente intermitente\\ \cline {1-4}
+\end{tabular}
+\label{tab:DemandPattern}
+\caption{Classificação dos padrões de demanda de acordo com \cite{EavesKingsman2004}.}
+\end{center}
+\end{table}
+
+Observe que os valores dos critérios de corte definidos para diferenciar alto e baixo são arbitrários.
+
+\cite{SyntetosEtAl2005} sugerem um esquema de categorização contruído a partir da comparação do erro médio quadrado de três diferentes metodologias (método de Croston, método de Croton modificado e amortecimento exponecial simples). De acordo com esse esquema, os parâmetros quadrado do coeficiente de variação do tamanho da demanda $(CV^2)$ e intervalo médio entre demandas $(p)$ são usados para classificar a demanda entre errática, esporádica, suave e intermitente. A tabela a seguir apresenta a classificação proposta pelos autores.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c c}
+\cline {1-3}
+$CV^2$ & $p$ & \multirow{2}{*}{padrão de demanda} \\ 
+$0.49$ & $1.32$ & \\ \cline {1-3}
+baixo & baixo & suave   \\ 
+baixo & alto  & intermitente   \\ 
+alto  & baixo & errática   \\
+alto  & alto  & esporádica  \\ \cline {1-3}
+\end{tabular}
+\label{tab:DemandPatternSybtetos}
+\caption{Classificação dos padrões de demanda de acordo com \cite{SyntetosEtAl2005}.}
+\end{center}
+\end{table}
+
+Observe que nesse esquema de classificação são definidos os pontos de corte $CV^2=0.49$ e $p=1.32$.
+
+%\bibliographystyle{acm}
+%\bibliography{Bibliography/BibFile}
+
+\begin{thebibliography}{12}
+
+\bibitem[\protect\citeauthoryear{Ballou}{2001}]{Ballou2001}
+Ballou, R.H. (2001).{\it Gerenciamento da Cadeia de Suprimentos: Planejamento, Organização e Logística Empresarial}, 4. ed., Porto Alegre: Bookman.
+
+\bibitem[\protect\citeauthoryear{Ballou}{2006}]{Ballou2006}
+Ballou, R.H. (2006).{\it Gerenciamento da Cadeia de Suprimentos / Logística Empresarial}, 5. ed., Porto Alegre: Bookman.
+
+\bibitem[\protect\citeauthoryear{Boylan et al.}{2008}]{BoylanEtAl2008}
+Boylan, J.E., Syntetos, A.A., e Karakostas, G.C. (2008). 'Classification for forecasting and stock control:a case study'. {\it Journal of the Operational Research Society}, Vol. 59, pp. 473--481.
+
+\bibitem[\protect\citeauthoryear{Businger e Read}{1999}]{BusingerRead1999}
+Businger, M.P., e Read, R.R. (1999). 'Identification of demand patterns for selective processing: acase study'. {\it Omega, Int. J. Mgmt Sci.}, Vol. 27, pp. 189--200.
+
+\bibitem[\protect\citeauthoryear{Eaves e Kingsman}{2004}]{EavesKingsman2004}
+Eaves A.H.C., e Kingsman B.G. (2004). 'Forecasting for the ordering and stock-holding of spare parts'. {\it J. O. Opl. Res. Soc.}, Vol. 55, pp. 431--437.
+
+\bibitem[\protect\citeauthoryear{Fraga}{2019}]{Fraga2019}
+Fraga, T.B. (2019). 'Estudo de Métodos de Previsão de Demanda e Proposição de Metodologia Combinada no Contexto das Micro e Pequenas
+Empresas do Agreste Pernambucano'. Projeto de Pesquisa registrado em 09/11/2019, e aprovado pela Pró-reitoria de Pesquisa da UFPE em 11/02/2021 (Processo SIPAC 23076.057489/2019-21).
+
+\bibitem[\protect\citeauthoryear{Harvey e Sotardi}{2018}]{HarveySotardi2018}
+Harvey, H.B., Sotardi, S.T. (2018). 'The Pareto Principle'. {\it Journal of the American College of Radiology}, Vol. 15 (6), pp. 931.
+    
+\bibitem[\protect\citeauthoryear{Makridakis et al.}{1998}]{MakridakisEtAl1998}
+Makridakis, S.G.,Wheelwright, S.C., Hyndman, R.J. (1998).{\it Forecasting: Methods and Applications}, 3. ed., Wiley.
+
+\bibitem[\protect\citeauthoryear{Makridakis e Hibon}{2000}]{MakridakisHibon2000}
+Makridakis, S. e Hibon, M. (2000). 'The M3-Competition: results, conclusions and implications'. {\it International Journal of Forecasting}, Vol. 16, pp. 451--476.
+
+\bibitem[\protect\citeauthoryear{Syntetos et al.}{2005}]{SyntetosEtAl2005}
+Syntetos, A.A., Boylan, J.E., e Croston, J.D. (2005). 'On the categorization of demand patterns'. {\it Journal of the Operational Research Society}, Vol. 56 (5), pp. 495--503.
+
+\bibitem[\protect\citeauthoryear{Ulrich et al.}{2022}]{UlrichEtAl2022}
+Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., e Senge, R. (2022). 'Classification-based model selection in retail demand forecasting'. {\it International Journal of Forecasting}, Vol. 38 (1), pp. 209--223.
+
+\bibitem[\protect\citeauthoryear{Werner et al.}{2006}]{WernerEtAl2006}
+Werner, L, Lemos, F.O., Daudt, T. (2006). 'Previsão de demanda e níveis de estoque uma abordagem conjunta aplicada no setor siderúrgico'. {\it XIII SIMPEP}, Bauru, SP, Brasil.
+
+\bibitem[\protect\citeauthoryear{Williams}{1984}]{Williams1984}
+Williams, T.M. (1984). 'Stock control with sporadic and slow-moving demand'. {\it Journal of the Operational Research Society}, Vol. 35 (10), pp. 939–948. 
+
+\end{thebibliography}
+
+\end{document}
