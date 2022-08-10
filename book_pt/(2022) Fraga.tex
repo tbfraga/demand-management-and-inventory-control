@@ -100,13 +100,13 @@ No intuito de oferecer um pronto atendimento aos clientes, grande parte das empr
 
 Como muitas organizações comercializam centenas ou até mesmo milhares de itens de inventário, muitas vezes determinar o nível adequado de estoque para cada item se torna excessivamente custoso ou até mesmo impraticável. Portanto uma prática comum consiste em classificar os diversos itens dando a atenção necessária apenas aos itens considerados mais importantes. Entre os métodos de classificação mais conhecidos está o método de Análise ABC desenvolvido com base na observação de Pareto, que posteriormente foi generalizada como regra de Pareto ou regra 80-20. De acordo com essa regra, aproximadamente 20\% das causas é responsável por 80\% dos efeitos.   \\
 
-De acordo com a classificação ABC, os itens de inventário devem ser distribuídos em três grupos - A, B e C - com base em algum critério conhecido. Os itens classificados como A são aqueles mais importantes, os itens B são menos importantes, e os itens C não apresentam importância significativa. Para classificação dos itens é necessário inicialmente listar os itens em ordem decrescente, de acordo com sua contribuição para o critério observado. Posteriormente, a distribuição dos itens entre as três categorias pode ser feita de acordo com a Tabela \ref{tab:ABCRules} apresentada a seguir. \\
+Pela classificação ABC, os itens de inventário devem ser distribuídos em três grupos - A, B e C - com base em algum critério conhecido. Os itens classificados como A são aqueles mais importantes, os itens B são menos importantes, e os itens C não apresentam importância significativa. Para classificação dos itens é necessário inicialmente listar os itens em ordem decrescente, de acordo com sua contribuição para o critério observado. Posteriormente é feita a soma acumulada das contribuições, e a distribuição dos itens entre as três categorias pode ser feita conforme sugerido na Tabela \ref{tab:ABCRules}. \\
 
 \begin{table}[h]
 \begin{center}
 \begin{tabular}[c]{c c c}
 \cline {1-3}
-classe & percentual de itens & contribuição percentual \\ \cline {1-3}
+grupo & percentual de itens & contribuição percentual \\ \cline {1-3}
 A & 20\% &  80\%   \\ 
 B & 50\% &  15\%   \\
 C & 30\% &  5\% \\ \cline {1-3}
@@ -116,7 +116,20 @@ C & 30\% &  5\% \\ \cline {1-3}
 \end{center}
 \end{table}
 
-Obeserve que nem sempre será possível encontrar a proporção exata apresentada na Tabela \ref{tab:ABCRules}. Uma forma de contornar essa dificuldade consite em fixar aproximadamente um dos critérios encontrando o valor para o próximo. Por exemplo, em determinada análise pode ser observado que 10\% dos itens são responsáveis por 79,5\% dos resultados. 
+Obeserve que nem sempre será possível encontrar a proporção exata apresentada na Tabela \ref{tab:ABCRules}. Uma forma de contornar essa dificuldade consite em fixar aproximadamente um dos critérios encontrando o valor para o próximo. Por exemplo, em determinada análise pode ser observado que 10\% dos itens são responsáveis por 79,5\% dos resultados. \\
+
+Uma importante questão a ser considerada na aplicação do método ABC é o critério escolhido para a análise. Geralmente é utilizado o critério custo-volume. Contudo outros critérios podem influenciar fortemente na definição da importância de determinado item. Entre tais critérios podemos citar:
+
+\begin{itemize}
+\item obsolescência: quando um item torna-se rapidamente obsoleto, ou quando este item está próximo de se tornar obsoleto, é necessário atribuir maior atenção ao controle do nível de estoque deste item, portanto itens com maior obsolescência são mais importantes do que itens com menor obsoslecência;
+\item lead-time: itens que podem ser fabricados ou adquiridos rapidamente são menos importântes do que aqueles itens com longos lead-times. O mesmo é válido para itens com lead-times muito variáveis, nesse caso a incerteza faz com que tais itens tornem-se mais importantes;
+\item substituibilidade: quando um item pode ser substituído por outro com especificações próximas, isso aumenta a flexibilidade e diminui o tempo de resposta na possibilidade de falta do item, portanto itens mais substituíveis são menos importantes do que itens menos substituíveis;
+\item reparabilidade: assim como no caso anterior, itens que podem ser rapidamente e facilmente reparáveis aumentam a flexibilidade e o tempo de resposta, portanto itens mais reparáveis são menos importantes do que itens menos reparáveis;
+\item nível de criticidade: esse aspecto está associado ao custo relacionado à falta de estoque do item. O controle do estoque de itens considerados críticos é geralmente muito importante;
+\item comunalidade: esse aspecto diz respeito às diferentes formas de uso de um item, um item com mais utilidades é mais importante do que um item com menos utilidades.
+\end{itemize}
+
+É preciso observar que muitas vezes é necessário considerar mais do que um critério, sendo que diferentes critérios podem resultar em diferentes classificações. A literatura apresenta uma série de metodologias que podem ser aplicadas para Análises ABC com Múltiplos Critérios. As seções a seguir apresentam de forma detalhada tais metodologias.
 
 
 \chapter{Identificação de padrões de demanda}
