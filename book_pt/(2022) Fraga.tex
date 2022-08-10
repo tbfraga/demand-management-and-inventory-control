@@ -23,7 +23,7 @@
 
 \usepackage{colortbl}
 \newcolumntype{a}{>{\columncolor{yellow}}l}
-\newcolumntype{b}{>{\columncolor{purple}}l}
+\newcolumntype{b}{>{\columncolor{blue}}l}
 \newcolumntype{d}{>{\columncolor{green}}l}
 
 \usepackage{fancyhdr}
@@ -140,7 +140,7 @@ Uma importante questão a ser considerada na aplicação do método ABC é o cri
 \section{Classificação matricial ABC com dois critérios}
 \label{biCriteriaABC}
 
-Nesse métodos a classificação usando dois critérios escolhidos é feita usando uma matrix de critérios conjuntos:
+Nesse método a classificação com dois critérios escolhidos é feita usando uma matrix de critérios conjuntos. Normalmente essa matriz terá a seguinte forma:
 
 \begin{table}[h]
 \begin{center}
@@ -150,16 +150,33 @@ Nesse métodos a classificação usando dois critérios escolhidos é feita usan
 \cline {3-5}
  \multirow{3}{*}{\begin{turn}{90} critério 1 \end{turn}}  & A & \cellcolor{green} & \cellcolor{green} & \multicolumn{1}{|b|}{} & &  & \cellcolor{green} & A \\ 
 \cline {3-5}
-& B & \cellcolor{green} &  \multicolumn{1}{|b|}{} & \cellcolor{yellow}  & & & \cellcolor{purple} & B \\
+& B & \cellcolor{green} &  \multicolumn{1}{|b|}{} & \cellcolor{yellow}  & & & \cellcolor{blue} & B \\
 \cline {3-5}
-& C & \multicolumn{1}{|b|}{} &  \cellcolor{yellow} & \cellcolor{yellow} & & & \cellcolor{yellow} & C\\ \cline {3-5}
+& C & \multicolumn{1}{|b|}{} &  \cellcolor{yellow} & \cellcolor{yellow} & & & \cellcolor{yellow} & C\\ 
 \end{tabular}
 \label{tab:jointMatrix}
 \caption{Matriz de critérios conjuntos.}
 \end{center}
 \end{table}
 
-Assim, itens com classificação, de acordo com primeiro e segundo critério, AA, AB ou BA, são classificados como itens do grupo A. Já os itens com classificação CA, BB, e AC são classificados como itens do grupo B. E os itens com classificação CB, BC e CC são classificados como itens do grupo C.
+Neste caso, itens com classificação, de acordo com primeiro e segundo critério, AA, AB ou BA, são classificados como itens do grupo A. Já os itens com classificação CA, BB, e AC são classificados como itens do grupo B. E os itens com classificação CB, BC e CC são classificados como itens do grupo C. Contudo, a forma da matriz poderá ser ajustada conforme os critérios utilizados e a avaliação da chefia. Por exemplo, caso fossem escolhidos como critérios o custo-volume e a criticidade, poderíamos adotar a seguinte forma matricial:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c | c | c | c | c c c c}
+&\multicolumn{1}{c}{}  & \multicolumn{3}{c}{criticidade} \\ 
+ \multirow{3}{*}{\begin{turn}{90} custo-volume \end{turn}} & \multicolumn{1}{c}{} &\multicolumn{1}{c}{A} &\multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} & & \multicolumn{3}{c}{legenda} \\
+\cline {3-5}
+  & A & \cellcolor{green} & \cellcolor{green} & \multicolumn{1}{|b|}{} & &  & \cellcolor{green} & A \\ 
+\cline {3-5}
+& B & \cellcolor{green} &  \multicolumn{1}{|b|}{} & \cellcolor{yellow}  & & & \cellcolor{blue} & B \\
+\cline {3-5}
+& C & \cellcolor{green} &  \cellcolor{blue} & \cellcolor{yellow} & & & \cellcolor{yellow} & C\\ 
+\end{tabular}
+\label{tab:jointMatrixCVC}
+\caption{Matriz de critérios conjuntos para os critérios custo-volume e criticidade.}
+\end{center}
+\end{table}
 
 \chapter{Identificação de padrões de demanda}
 
