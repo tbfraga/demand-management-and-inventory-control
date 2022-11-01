@@ -1,0 +1,71 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    citecolor = {blue},
+    urlcolor = {blue},
+}
+
+% Used by the template
+\usepackage{setspace}
+\usepackage{changepage} % to adjust margins
+\usepackage[breakable]{tcolorbox}
+\usepackage{float} % for tables inside tcolorbox https://tex.stackexchange.com/a/274342
+\usepackage{enumitem}
+\usepackage[authoryear, round]{natbib}
+
+\newtcolorbox[auto counter]{pabox}[2][]{%
+colback=white!10!white, breakable, sharp corners, boxrule=0.7pt, title= \textbf{ABC Analysis #2}, #1}
+
+\begin{document}
+
+% Optional: reduce margins single line to fit in "one to two pages", as recommended
+\begin{adjustwidth}{-60pt}{-30pt}
+\begin{singlespace}
+
+\tcbset{colback=white!10!white}
+
+\begin{minipage}{\textwidth}
+
+\begin{pabox}[label={myusecounter}]{\hfill  \cite{FloresAndWhybark1986}}
+% Change to a smaller, but still legible font size to help fit in the recommended "one to two pages"
+
+\textbf{brief:}
+\vspace{5pt}
+
+The authors present a method for multicriteria ABC analysis called Joint Criteria Matrix along with some application examples.
+\vspace{5pt}
+
+\textbf{Joint Criteria Matrix method}
+\vspace{5pt}
+
+According to this method, items are classified according to two distinct criteria (usually concurrent), and then a matrix is used for reclassification.
+\vspace{5pt}
+
+\textbf{useful:}
+\vspace{5pt}
+
+The authors present a good and detailed explanation for the ABC analysis method as well as a detailed explanation of several alternative criteria used for ranking the importance of inventory items: obsolescence, lead times, substitutability, repairability, criticality and commonality.
+
+\vspace{5pt}
+
+\textbf{extension:}
+\vspace{5pt}
+
+\cite{FloresAndWhybark1987} present an extensive comparative study of the application of Joint Criteria Matrix method in a company in the service sector and in a company in the manufacturing sector.
+
+\tcblower
+
+\bibliographystyle{unsrtnat}
+\bibliography{bibFile}
+
+\end{pabox}
+\end{minipage}
+
+\end{singlespace}
+\end{adjustwidth}
+
+\end{document}

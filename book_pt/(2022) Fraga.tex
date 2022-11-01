@@ -178,6 +178,181 @@ Neste caso, itens com classificação, de acordo com primeiro e segundo critéri
 \end{center}
 \end{table}
 
+\section{Processo de Hierarquia Analítica}
+\label{hierarquiaAnalitica}
+
+O Processo de Hierarquia Analítica (PHA) é um método desenvolvido por Saaty em 1971 que tem como objetivo encontrar uma medida única e padronizada quando considerando vários critérios. Para apresentação de como este método pode ser utilizado para classificação ABC multicritério, estarei usando uma adaptação do exemplo apresentado em uma das publicações do autor \citep{Saaty1987}.
+
+Considere que em uma empresa, foram feitas quatro classificações para os itens de inventário, utilizando para cada classificação um dos seguintes critérios: custo-volume, nível de criticidade, obsolescência e lead-time. A Tabela \ref{tab:classABC} apresenta o resultado destas classificações:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c c | c c c | c c c | c c c}
+\multicolumn{3}{c}{custo-volume} & \multicolumn{3}{c}{criticidade} & \multicolumn{3}{c}{obsolescência} & \multicolumn{3}{c}{lead-time} \\
+item & \% & & item & \% & & item & \% & & item & \% & \\
+1 & 50 & A & 8 & 60 & A & 3 & 20\% & A & item 4 & 30\% & A \\
+2 & 30 & A & 3 & 20 & A & 4 & 20\% & A & item 5 & 20\% & A \\
+3 & 8  & B & 1 & 4 & B  & item 6 & 20\% & A & item 6 & 20\% & A \\
+4 & 4  & B & 2 & 4 & B  & item 9 & 20\% & A & item 10 & 10\% & A \\
+5 & 3  & B & 4 & 4 & B  & item 1 & 5\% & B & item 1 & 8\% & B \\
+6 & 1  & C & 5 & 4 & B  & item 5 & 5\% & B & item 3 & 7\% & B \\
+7 & 1  & C & 6 & 1 & C  & item 10 & 5\% & B & item 9 & 2\% & C \\
+8 & 1  & C & 7 & 1 & C  & item 2 & 3\% & C  & item 2 & 1\% & C \\
+9 & 1  & C & 9 & 1 & C  & item 7 & 1\% & C  & item 7 & 1\% & C \\
+10 & 1  & C & 10 & 1 & C & item 8 & 1\% & C & item 8 & 1\% & C \\
+\end{tabular}
+\label{tab:classABC}
+\caption{Classificação ABC para os critérios custo-volume, nível de criticidade, obsolescência e lead-time.}
+\end{center}
+\end{table}
+
+O método PHA começa com a criação de uma matriz de comparação entre pares. Para criação dessa matriz, para cada par de critérios é atribuída uma importância relativa, conforme escala apresentada na Tabela \ref{tab:escalaFundamental}.
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c}
+intensidade de importância & \multirow{2}{*}{definição} \\
+em uma escala absoluta & \\
+1 & importância igual  \\
+3 & importância moderada de uma sobre a outra \\
+5 & importância forte \\
+7 & importância muito forte \\
+9 & extrema importância \\
+2, 4, 6, 8 & valores intermediários (quando necessário) \\
+\end{tabular}
+\label{tab:escalaFundamental}
+\caption{Escala fundamental. Fonte: adaptada de \cite{Saaty1987}.}
+\end{center}
+\end{table}
+
+A Tabela \ref{tab:matrizComparativa} apresenta uma matriz de comparação entre pares criada para o exemplo estudado.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c | c c c c}
+critério & custo-volume & criticidade & obsolescência  & lead-time \\
+\hline
+custo-volume & 1 & 1/7 & 1/5 & 1/5 \\
+criticidade  & 7 & 1 & 2 & 3\\
+obsolescência & 5 & 1/2 & 1 & 1\\
+lead-time & 5 & 1/3 & 1 & 1\\
+\end{tabular}
+\label{tab:matrizComparativa}
+\caption{Matriz de comparação entre pares.}
+\end{center}
+\end{table}
+
+Esta matriz informa a importância de um critério com relação ao outro critério. Por exemplo, o critério criticidade tem importância muito forte quando comparado com o critério custo-volume. Observe que essa matriz é recíproca, ou seja $a_{ij} = a_{ji}$, e que os elementos da diagonal principal terão sempre valor unitário. 
+
+Uma vez que a matriz de comparação entre pares é criada, o próximo passo consiste em encontrar os pesos de cada critério. De acordo com o método PHA, tais pesos são informados pelo autovetor da matriz recém construída.
+
+Para encontrar o autovetor da matriz estudada (A), precisamos inicialmente encontrar o autovalor não nulo da matriz ($\lambda$), usando a equação:
+
+\begin{equation}
+det{|A - \lambda  I|} = 0
+\end{equation}
+
+\noindent onde $I$ representa a matriz identidade.
+
+Para a nossa matriz de comparação entre pares, teremos:
+
+\begin{equation}
+det{ \left(
+\begin{vmatrix}
+1 & 1/7 &  1/5 & 1/5 \\
+7 & 1 & 2 & 3 \\
+5 & 1/2 & 1 & 1 \\
+5 & 1/3 & 1 & 1 \\
+\end{vmatrix} - 
+\lambda \begin{vmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{vmatrix} \right) } = 0 \nonumber
+\end{equation}
+
+ou
+
+\begin{equation}
+det{
+\begin{vmatrix}
+1 - \lambda & 1/7 &  1/5 & 1/5 \\
+7 & 1 - \lambda & 2 & 3 \\
+5 & 1/2 & 1 - \lambda & 1 \\
+5 & 1/3 & 1 & 1 -\lambda\\
+\end{vmatrix}} = 0 \nonumber
+\end{equation}
+
+\begin{eqnarray}
+(1 - \lambda) det{\begin{vmatrix}
+1 - \lambda & 2 & 3 \\
+1/2 & 1 - \lambda & 1 \\
+1/3 & 1 & 1 -\lambda\\
+\end{vmatrix}} - 7 det{\begin{vmatrix}
+1/7 &  1/5 & 1/5 \\
+1/2 & 1 - \lambda & 1 \\
+1/3 & 1 & 1 -\lambda\\
+\end{vmatrix}} \nonumber \\
++ 5 det{\begin{vmatrix}
+1/7 &  1/5 & 1/5 \\
+1 - \lambda & 2 & 3 \\
+1/3 & 1 & 1 -\lambda\\
+\end{vmatrix}} - 5 det{\begin{vmatrix}
+1/7 &  1/5 & 1/5 \\
+1 - \lambda & 2 & 3 \\
+1/2 & 1 - \lambda & 1 \\
+\end{vmatrix}}= 0 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+(1 - \lambda) ((1 - \lambda)^3 + 2/3 + 3/2 - 3(1 - \lambda) ) \nonumber \\
+- 7 (1/7(1 - \lambda)^2) + 1/15 + 1/10 - 1/15(1 - \lambda) - 1/7 - 1/10(1 - \lambda)) \nonumber \\
++ 5 (2/7(1 - \lambda) + 1/5 + 1/5(1 - \lambda) - 2/15 - 3/7 - 1/5(1 - \lambda)^2)) \nonumber \\
+- 5 (2/7 + 3/10 + 1/5(1 - \lambda)^2) - 1/5 - 3/7(1 - \lambda) - 1/5(1 - \lambda)) \nonumber \\
+= 0 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+(1 - \lambda)^4 - 3(1 - \lambda)^2 + 13/6(1 - \lambda)  \nonumber \\
+- (1 - \lambda)^2 - 7/15 - 7/10 +7/15(1 - \lambda) + 1 + 7/10(1 - \lambda) \nonumber \\
+10/7(1 - \lambda) + 1 + (1 - \lambda) - 10/15 - 15/7 - (1 - \lambda)^2) \nonumber \\
+-10/7 -15/10 -(1 - \lambda)^2 + 1 + 15/7(1 - \lambda) + (1 - \lambda) \nonumber \\
+= 0 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+(1 - \lambda)^4 - 6(1 - \lambda)^2 + \frac{187}{21} (1 - \lambda) - \frac{82}{21} = 0 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+(1 - 2\lambda + \lambda^2)^2 - 6(1 - 2\lambda + \lambda^2) + \frac{187}{21} - \frac{187}{21} \lambda - \frac{82}{21} = 0 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+1 - 2\lambda + \lambda^2 - 2\lambda + 4\lambda^2 - 2\lambda^3 + \lambda^2 - 2\lambda^3 + \lambda^4 - 6 + 12\lambda - 6\lambda^2 + \frac{187}{21} - \frac{187}{21} \lambda - \frac{82}{21} = 0 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+\lambda^4 - 4\lambda^3 + \frac{-19}{21}\lambda  = 0 \nonumber
+\end{eqnarray}
+
+ou, multimplicando a equação por $21/\lambda$
+
+\begin{equation}
+21\lambda^3 - 84\lambda^2 - 19 = 0 \nonumber 
+\end{equation}
+
+ou
+
+\begin{equation}
+21\lambda(\lambda^2 - 4\lambda) = 19 \nonumber 
+\end{equation}
+
+Como 19 é um número primo, podemos verificar que não existe a possibilidade de $\lambda$ ter um valor inteiro. \\
+
+
 \section{Formulação matemática}
 \label{mathForm}
 
@@ -468,6 +643,9 @@ Makridakis, S.G.,Wheelwright, S.C., Hyndman, R.J. (1998).{\it Forecasting: Metho
 
 \bibitem[\protect\citeauthoryear{Makridakis e Hibon}{2000}]{MakridakisHibon2000}
 Makridakis, S. e Hibon, M. (2000). 'The M3-Competition: results, conclusions and implications'. {\it International Journal of Forecasting}, Vol. 16, pp. 451--476.
+
+\bibitem[\protect\citeauthoryear{Saaty}{1987}]{Saaty1987}
+Saaty, R.W. (1987). 'The Analytic Hierarchy Process - what it is and how it is used'. {\it Mathl Modelling}, Vol. 9, No. 3-5, pp. 161--176.
 
 \bibitem[\protect\citeauthoryear{Syntetos et al.}{2005}]{SyntetosEtAl2005}
 Syntetos, A.A., Boylan, J.E., e Croston, J.D. (2005). 'On the categorization of demand patterns'. {\it Journal of the Operational Research Society}, Vol. 56 (5), pp. 495--503.
