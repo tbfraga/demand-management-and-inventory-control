@@ -190,16 +190,16 @@ Considere que em uma empresa, foram feitas quatro classificações para os itens
 \begin{tabular}[c]{c c c | c c c | c c c | c c c}
 \multicolumn{3}{c}{custo-volume} & \multicolumn{3}{c}{criticidade} & \multicolumn{3}{c}{obsolescência} & \multicolumn{3}{c}{lead-time} \\
 item & \% & & item & \% & & item & \% & & item & \% & \\
-1 & 50 & A & 8 & 60 & A & 3 & 20\% & A & item 4 & 30\% & A \\
-2 & 30 & A & 3 & 20 & A & 4 & 20\% & A & item 5 & 20\% & A \\
-3 & 8  & B & 1 & 4 & B  & item 6 & 20\% & A & item 6 & 20\% & A \\
-4 & 4  & B & 2 & 4 & B  & item 9 & 20\% & A & item 10 & 10\% & A \\
-5 & 3  & B & 4 & 4 & B  & item 1 & 5\% & B & item 1 & 8\% & B \\
-6 & 1  & C & 5 & 4 & B  & item 5 & 5\% & B & item 3 & 7\% & B \\
-7 & 1  & C & 6 & 1 & C  & item 10 & 5\% & B & item 9 & 2\% & C \\
-8 & 1  & C & 7 & 1 & C  & item 2 & 3\% & C  & item 2 & 1\% & C \\
-9 & 1  & C & 9 & 1 & C  & item 7 & 1\% & C  & item 7 & 1\% & C \\
-10 & 1  & C & 10 & 1 & C & item 8 & 1\% & C & item 8 & 1\% & C \\
+1 & 50 & A & 8 & 60 & A & 3 & 20 & A & 4 & 30 & A \\
+2 & 30 & A & 3 & 20 & A & 4 & 20 & A & 5 & 20 & A \\
+3 & 8  & B & 1 & 4 & B  & 6 & 20 & A & 6 & 20 & A \\
+4 & 4  & B & 2 & 4 & B  & 9 & 20 & A & 10 & 10 & A \\
+5 & 3  & B & 4 & 4 & B  & 1 & 5 & B & 1 & 8 & B \\
+6 & 1  & C & 5 & 4 & B  & 5 & 5 & B & 3 & 7 & B \\
+7 & 1  & C & 6 & 1 & C  & 10 & 5 & B & 9 & 2 & C \\
+8 & 1  & C & 7 & 1 & C  & 2 & 3 & C  & 2 & 1 & C \\
+9 & 1  & C & 9 & 1 & C  & 7 & 1 & C  & 7 & 1 & C \\
+10 & 1  & C & 10 & 1 & C & 8 & 1 & C & 8 & 1 & C \\
 \end{tabular}
 \label{tab:classABC}
 \caption{Classificação ABC para os critérios custo-volume, nível de criticidade, obsolescência e lead-time.}
@@ -250,10 +250,23 @@ Uma vez que a matriz de comparação entre pares é criada, o próximo passo con
 Para encontrar o autovetor da matriz estudada (A), precisamos inicialmente encontrar o autovalor não nulo da matriz ($\lambda$), usando a equação:
 
 \begin{equation}
-det{|A - \lambda  I|} = 0
+det{(A - \lambda  I)} = 0
 \end{equation}
 
-\noindent onde $I$ representa a matriz identidade.
+\noindent onde $I$ representa a matriz identidade. \\
+
+Uma vez que encontramos os autovalores, podemos encontrar os autovetores associados udando a equação:
+
+
+\begin{equation}
+(A - \lambda  I)v = \emptyset
+\end{equation}
+
+onde $v$ é o autovetor associado ao autovalor $\lambda$ e $\emptyset$ representa um vetor nulo. \\
+
+Nesse caso o autovetor $v$ estará representando os pesos de cada critério estudado. \\
+
+Exemplo de aplicação: \\
 
 Para a nossa matriz de comparação entre pares, teremos:
 
@@ -307,34 +320,6 @@ det{
 \end{eqnarray}
 
 \begin{eqnarray}
-(1 - \lambda) ((1 - \lambda)^3 + 2/3 + 3/2 - 3(1 - \lambda) ) \nonumber \\
-- 7 (1/7(1 - \lambda)^2) + 1/15 + 1/10 - 1/15(1 - \lambda) - 1/7 - 1/10(1 - \lambda)) \nonumber \\
-+ 5 (2/7(1 - \lambda) + 1/5 + 1/5(1 - \lambda) - 2/15 - 3/7 - 1/5(1 - \lambda)^2)) \nonumber \\
-- 5 (2/7 + 3/10 + 1/5(1 - \lambda)^2) - 1/5 - 3/7(1 - \lambda) - 1/5(1 - \lambda)) \nonumber \\
-= 0 \nonumber
-\end{eqnarray}
-
-\begin{eqnarray}
-(1 - \lambda)^4 - 3(1 - \lambda)^2 + 13/6(1 - \lambda)  \nonumber \\
-- (1 - \lambda)^2 - 7/15 - 7/10 +7/15(1 - \lambda) + 1 + 7/10(1 - \lambda) \nonumber \\
-10/7(1 - \lambda) + 1 + (1 - \lambda) - 10/15 - 15/7 - (1 - \lambda)^2) \nonumber \\
--10/7 -15/10 -(1 - \lambda)^2 + 1 + 15/7(1 - \lambda) + (1 - \lambda) \nonumber \\
-= 0 \nonumber
-\end{eqnarray}
-
-\begin{eqnarray}
-(1 - \lambda)^4 - 6(1 - \lambda)^2 + \frac{187}{21} (1 - \lambda) - \frac{82}{21} = 0 \nonumber
-\end{eqnarray}
-
-\begin{eqnarray}
-(1 - 2\lambda + \lambda^2)^2 - 6(1 - 2\lambda + \lambda^2) + \frac{187}{21} - \frac{187}{21} \lambda - \frac{82}{21} = 0 \nonumber
-\end{eqnarray}
-
-\begin{eqnarray}
-1 - 2\lambda + \lambda^2 - 2\lambda + 4\lambda^2 - 2\lambda^3 + \lambda^2 - 2\lambda^3 + \lambda^4 - 6 + 12\lambda - 6\lambda^2 + \frac{187}{21} - \frac{187}{21} \lambda - \frac{82}{21} = 0 \nonumber
-\end{eqnarray}
-
-\begin{eqnarray}
 \lambda^4 - 4\lambda^3 + \frac{-19}{21}\lambda  = 0 \nonumber
 \end{eqnarray}
 
@@ -344,17 +329,114 @@ ou, multimplicando a equação por $21/\lambda$
 21\lambda^3 - 84\lambda^2 - 19 = 0 \nonumber 
 \end{equation}
 
-ou
+Utilizando a calculadora disponível em https://www.blogcyberini.com/p/calculadora-de-equacoes-do-terceiro-grau.html, teremos o seguinte autovalor não nulo, $r_1$:\\
+
+$r_1 = 4.05502341900215$ \\
+
+e o autovetor: \\
+
+$(0.053, 0.491, 0.238, 0.213)$ \\
+
+Observe que somando os elementos do autovetor, teremos o valor $0,995$. \\
+
+Organizando a matriz com as classificações, temos os resultados encontrados na Tabela \ref{tab:classABCPerc}. \\
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c | c c c c}
+item & \multicolumn{1}{c}{custo-volume} & \multicolumn{1}{c}{criticidade} & \multicolumn{1}{c}{obsolescência} & \multicolumn{1}{c}{lead-time} \\
+1  & 50\% &  4\% &  5\% &  8\% \\
+2  & 30\% &  4\% &  3\% &  1\% \\
+3  &  8\% & 20\% & 20\% &  7\% \\
+4  &  4\% &  4\% & 20\% & 30\% \\
+5  &  3\% &  4\% &  5\% & 20\% \\
+6  &  1\% &  1\% & 20\% & 20\% \\
+7  &  1\% &  1\% &  1\% &  1\% \\
+8  &  1\% & 60\% &  1\% &  1\% \\
+9  &  1\% &  1\% & 20\% &  2\% \\
+10 &  1\% &  1\% &  5\% & 10\% \\
+\end{tabular}
+\label{tab:classABCPerc}
+\caption{Classificação ABC organizada por item.}
+\end{center}
+\end{table}
+
+Para encontrar a nova classificação multicritério, multiplicamos a essa matriz por $v$, depois utilizamos o método de classificação ABC.
 
 \begin{equation}
-21\lambda(\lambda^2 - 4\lambda) = 19 \nonumber 
+\begin{vmatrix}
+50\% &  4\% &  5\% &  8\% \\
+30\% &  4\% &  3\% &  1\% \\
+8\% & 20\% & 20\% &  7\% \\
+4\% &  4\% & 20\% & 30\% \\
+3\% &  4\% &  5\% & 20\% \\
+1\% &  1\% & 20\% & 20\% \\
+1\% &  1\% &  1\% &  1\% \\
+1\% & 60\% &  1\% &  1\% \\
+1\% &  1\% & 20\% &  2\% \\
+1\% &  1\% &  5\% & 10\% \\
+\end{vmatrix}
+\begin{vmatrix}
+0.053 \\
+0.491 \\
+0.238 \\
+0.213 \\
+\end{vmatrix} 
+= \begin{vmatrix}
+ 7,508\% \\
+ 4.481\% \\
+16.495\% \\
+13.326\% \\
+ 7.573\% \\
+ 9.564\% \\
+ 0.995\% \\
+29.964\% \\
+ 5.730\% \\
+ 3.864\% \\
+\end{vmatrix} \nonumber
 \end{equation}
 
-Como 19 é um número primo, podemos verificar que não existe a possibilidade de $\lambda$ ter um valor inteiro. \\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c}
+item & \% acumulado \\
+ 8 & 29.964 \% \\
+ 3 & 46.459 \% \\
+ 4 & 59,785 \% \\
+ 6 & 69,349 \% \\
+ 5 & 76,922 \% \\
+ 1 & 84,430 \% \\
+ 9 & 90,160 \% \\
+ 2 & 94,641 \% \\
+10 & 98,505 \% \\
+ 7 & 99,500 \% \\
+\end{tabular}
+\label{tab:ordenada}
+\caption{Ordenação de acordo com percentual acumulado.}
+\end{center}
+\end{table}
 
-Usando o método do discriminante, temos:
-  
-  
+Como a soma dos pesos é $0.995$, o percentual acumulado final é também limitado a esse valor. É possível normalizar os valores dos pesos ou dos percentuais acumulados, caso seja necessário. A tabela a seguir foi construída normalizando os percentuiais acumulados e então utilizando os seguintes critérios de corte: A < 70\%; B < 90\%; e C o restante.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c c }
+item & \% acumulado & classificação \\
+ 8 &  30.115 \% & A \\
+ 3 &  46.692 \% & A \\
+ 4 &  60,085 \% & A \\
+ 6 &  69,697 \% & A \\
+ 5 &  77,309 \% & B \\
+ 1 &  84,854 \% & B \\
+ 9 &  90,613 \% & C \\
+ 2 &  95,117 \% & C \\
+10 &  99,000 \% & C \\
+ 7 & 100,000 \% & C \\
+\end{tabular}
+\label{tab:classABCMult}
+\caption{Classificação ABC multicritério.}
+\end{center}
+\end{table}
 
 \section{Formulação matemática}
 \label{mathForm}
