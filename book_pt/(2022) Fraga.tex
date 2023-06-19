@@ -542,6 +542,27 @@ alto  & alto  & esporádica  \\ \cline {1-3}
 
 Nesse esquema de classificação são definidos os pontos de corte $CV^2=0.49$ e $p=1.32$.
 
+\section{Método de Williams}
+\label{sec:williams}
+
+\cite{Williams1984} propôs um método para classificação de padrão de demanda entre suave (\emph{smooth}), de movimento lento (\emph{slow moving}) e esporádico (\emph{sporadic}) particionando a variância da demanda durante um \emph{lead time} em suas partes causais. Neste livro estaremos chamando este método de Métodos da Partição da Variância ou, simplesmente, método de Williams.
+
+\emph{Demanda durante um lead time}
+
+Conforme informado anteriormente neste livro, \cite{BoylanEtAl2008} define um item de demanda intermitente como sendo um item cujos pedidos ocorrem com pouca frequencia. Contudo, na prática o conceito de itermitência é fortemente afetado pelo \emph{lead time} do item. Por exemplo, considere dois itens fabricados em uma mesma fábrica, sendo que o primeiro item tem \emph{lead time} de 1 dia enquanto que o segundo item tem \emph{lead time} de 10 dias. É natural pensar que o item que tem \emph{lead time} de 1 dia tem um processo de fabricação mais simples quando comparado com o segundo item. Portanto é fácil imaginar que o produto com menor \emph{lead time} é mais barato e tem uma maior procura. Nesse caso poderia paracer natural que, considerando o prazo de 10 dias, o número de pedidos do primeiro item fosse 10 vezes maior do que o número de pedidos do segundo item. 
+
+Então, buscando criar uma medida que tenha um significado uniforme para os diferentes itens, podemos pensar em itermitência como sendo um parâmetro definido pela razão do \emph{número de pedidos} pelo \emph{lead time}.   
+
+No trabalho de \cite{Williams1984}, esse parâmetro é chamado \emph{Demanda Durante um Lead Time} (DDLT). 
+
+No método de Williams a variâcia do DDLT ($var(DDLT)$) é particionado em suas três partes constituintes causais, conforme equação a seguir:
+
+\begin{equation}
+var(DDLT) = var(n) x^2 L + var(x) n L + var(l) n^2 L^2
+\end{equation}
+
+
+
 \begin{thebibliography}{12}
 
 \bibitem[\protect\citeauthoryear{Ballou}{2001}]{Ballou2001}
