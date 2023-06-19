@@ -1,25 +1,29 @@
 \documentclass{book}
-\usepackage[brazilian]{babel}
+\usepackage{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{multirow}
 
 \usepackage{amsmath}
+\usepackage{multirow}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
 \usepackage{graphicx}
-\graphicspath{ {Figures/} }
+\graphicspath{ {figures/} }
 \usepackage{float}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 
 \usepackage{natbib,stfloats}
 
-\tcbuselibrary{skins,breakable}
-\usetikzlibrary{shadings,shadows}
+%\tcbuselibrary{skins,breakable}
+%\usetikzlibrary{shadings,shadows}
 \usepackage{rotating}
 
-\usepackage{tikz}
-\usetikzlibrary{snakes}
-\usetikzlibrary{patterns}
+%\usepackage{tikz}
+%\usetikzlibrary{snakes}
+%\usetikzlibrary{patterns}
 
 \usepackage{colortbl}
 \newcolumntype{a}{>{\columncolor{yellow}}l}
@@ -37,74 +41,88 @@
 \fancyfoot[L]{T.B. Fraga (2022). Gestão de Demanda e Controle de Estoque.}
 \fancyfoot[R]{\thepage}
 
-\definecolor{cambridgeblue}{rgb}{0.64, 0.76, 0.68}
-\definecolor{camel}{rgb}{0.76, 0.6, 0.42}
-\definecolor{camouflagegreen}{rgb}{0.47, 0.53, 0.42}
-\definecolor{desertsand}{rgb}{0.93, 0.79, 0.69}
+%\definecolor{cambridgeblue}{rgb}{0.64, 0.76, 0.68}
+%\definecolor{camel}{rgb}{0.76, 0.6, 0.42}
+%\definecolor{camouflagegreen}{rgb}{0.47, 0.53, 0.42}
+%\definecolor{desertsand}{rgb}{0.93, 0.79, 0.69}
 
-\newenvironment{exerciseblock}[1]{%
-    \tcolorbox[beamer,%
-    noparskip,breakable,
-    colback=camel!20,colframe=camouflagegreen,%
-    colbacklower=camouflagegreen!75!camel!20,%
-    title=#1]}%
-    {\endtcolorbox}
+%\newenvironment{exerciseblock}[1]{%
+%    \tcolorbox[beamer,%
+%    noparskip,breakable,
+%    colback=camel!20,colframe=camouflagegreen,%
+%    colbacklower=camouflagegreen!75!camel!20,%
+%    title=#1]}%
+%    {\endtcolorbox}
 
-\newenvironment{exempleblock}[1]{%
-    \tcolorbox[beamer,%
-    noparskip,breakable,
-    colback=camel!20,colframe=Brown!70,%
-    colbacklower=camouflagegreen!75!camel!20,%
-    title=#1]}%
-    {\endtcolorbox}
+%\newenvironment{exempleblock}[1]{%
+%    \tcolorbox[beamer,%
+%    noparskip,breakable,
+%    colback=camel!20,colframe=Brown!70,%
+%    colbacklower=camouflagegreen!75!camel!20,%
+%    title=#1]}%
+%    {\endtcolorbox}
 
-\newenvironment{algorithmblock}[1]{%
-    \tcolorbox[beamer,%
-    noparskip,breakable,
-    colback=camel!20,colframe=Brown!40,%
-    colbacklower=camouflagegreen!75!camel!20,%
-    title=#1]}%
-    {\endtcolorbox}
+%\newenvironment{algorithmblock}[1]{%
+%    \tcolorbox[beamer,%
+%    noparskip,breakable,
+%    colback=camel!20,colframe=Brown!40,%
+%    colbacklower=camouflagegreen!75!camel!20,%
+%    title=#1]}%
+%    {\endtcolorbox}
 
-\newenvironment{dedication}
-  {\clearpage           % we want a new page
-   \thispagestyle{empty}% no header and footer
-   \vspace*{\stretch{1}}% some space at the top 
-   \itshape             % the text is in italics
-   \raggedleft          % flush to the right margin
-  }
-  {\par % end the paragraph
-   \vspace{\stretch{3}} % space at bottom is three times that at the top
-   \clearpage           % finish off the page
-  }
+%\newenvironment{dedication}
+%  {\clearpage           % we want a new page
+%   \thispagestyle{empty}% no header and footer
+%   \vspace*{\stretch{1}}% some space at the top 
+%   \itshape             % the text is in italics
+%   \raggedleft          % flush to the right margin
+%  }
+ % {\par % end the paragraph
+ %  \vspace{\stretch{3}} % space at bottom is three times that at the top
+ %  \clearpage           % finish off the page
+  %}
 
 % para construção de diagramas
 
-\tikzstyle{place}=[circle,draw=camouflagegreen!80,fill=desertsand!20,thick]
-\tikzstyle{Ret}=[rectangle,draw=camouflagegreen!80,fill=desertsand!20,thick]
-\tikzstyle{RoundRet}=[rectangle,draw=camouflagegreen!80,fill=desertsand!20,thick, rounded corners]
+%\tikzstyle{place}=[circle,draw=camouflagegreen!80,fill=desertsand!20,thick]
+%\tikzstyle{Ret}=[rectangle,draw=camouflagegreen!80,fill=desertsand!20,thick]
+%\tikzstyle{RoundRet}=[rectangle,draw=camouflagegreen!80,fill=desertsand!20,thick, rounded corners]
 
 \begin{document}
+Livro em processo de elaboração.
 
-Livro em processo de elaboração. \\
+Título: Gestão de Demanda e Controle de Estoque.
 
-Título: Gestão de Demanda e Controle de Estoque.\\
+Autora: Tatiana Balbi Fraga. 
 
-Autora: Tatiana Balbi Fraga. \\
+Profa. do Núcleo de Tecnologia da UFPE. 
 
-Profa. do Núcleo de Tecnologia da UFPE. \\
+Este livro está sendo elaborado como parte do projeto de pesquisa proposto por \cite{Fraga2019}.
 
-Caso tenha interesse em participar da elaboração deste livro, enviar e-mail para: tatiana.balbi@ufpe.br.\\
+Caso tenha interesse em participar, favor enviar e-mail para: tatiana.balbi@ufpe.br informando como deseja contribuir.
 
-O mesmo endereço de e-mail poderá ser utilizado para críticas e sugestões. Desde já agradeço por qualquer contribuição. \\
+O mesmo endereço de e-mail poderá ser utilizado para críticas e sugestões. Desde já agradeço por qualquer contribuição. 
 
-O conteúdo apresentado neste livro estará sendo modificado ao longo de sua elaboração, caso o mesmo seja consultado para elaboração de algum trabalho, favor citar como referência o título, a autora, a data da consulta e o endereço da versão consultada no github. \\
+O conteúdo apresentado neste livro estará sendo modificado ao longo de sua elaboração, caso o mesmo seja consultado para elaboração de algum trabalho, favor citar como referência:
+
+Fraga(2023). Gestão de Demanda e Controle de Estoque. Disponível em \\ 
+https://github.com/tbfraga/book-demand-management-and-inventory-control. \\
+Último acesso em <data do último acesso>.
 
 \chapter{Classificação de itens de inventário}
 
-No intuito de oferecer um pronto atendimento aos clientes, grande parte das empresas estocam alguns produtos que comercializam. Contudo, o estoque apresenta uma série de preocupações tais como a necessidade de deixar um grande capital parado, o uso de amplo espaço para estocagem e o perecimento dos produtos. Assim torna-se necessária uma correta identificação dos níveis adequados de estoque para os diferentes produtos através de estudos que buscam um ponto de equilíbrio entre as reais necessidades de estocagem e os custos envolvidos. Entre os esforço necessários para a definição de um ponto de equilíbrio podemos citar os estudos de demanda e a busca pela otimização da utilização do espaço disponível para estocagem. \\
+No intuito de oferecer um pronto atendimento aos clientes, grande parte das empresas estocam alguns produtos que comercializam. Contudo, o estoque apresenta uma série de preocupações tais como a necessidade de deixar um grande capital parado, o uso de amplo espaço para estocagem e o perecimento dos produtos. Assim torna-se necessária uma correta identificação dos níveis adequados de estoque para os diferentes produtos através de estudos que buscam um ponto de equilíbrio entre as reais necessidades de estocagem e os custos envolvidos. Entre os esforço necessários para a definição de um ponto de equilíbrio podemos citar os estudos de demanda e a busca pela otimização da utilização do espaço disponível para estocagem.
 
-Como muitas organizações comercializam centenas ou até mesmo milhares de itens de inventário, muitas vezes determinar o nível adequado de estoque para cada item se torna excessivamente custoso ou até mesmo impraticável. Portanto uma prática comum consiste em classificar os diversos itens dando a atenção necessária apenas aos itens considerados mais importantes. Entre os métodos de classificação mais conhecidos está o método de Análise ABC desenvolvido com base na observação de Pareto, que posteriormente foi generalizada como regra de Pareto ou regra 80-20. De acordo com essa regra, aproximadamente 20\% das causas é responsável por 80\% dos efeitos.   \\
+Como muitas organizações comercializam centenas ou até mesmo milhares de itens de inventário, muitas vezes determinar o nível adequado de estoque para cada item se torna excessivamente custoso ou até mesmo impraticável. Portanto uma prática comum consiste em classificar os diversos itens dando a atenção necessária apenas aos itens considerados mais importantes. Entre os métodos de classificação mais conhecidos está o método de análise ABC. Este método será apresentado de forma bem detalhada no capítulo \ref{ch:ABC}.
+
+Uma vez que é dada uma priorização aos itens, é indispensável que seja feita análise de demanda, buscando manter em estoque a quantidade adequade dos principais itens. A análise de demanda deve começar com uma boa previsão. Contudo, há inúmeros métodos para previsão de demanda, sendo que os diferentes métodos produzirão diferentes resultados. Portanto é necessário inicialmente identificar os padrões de demanda dos principais itens, avaliando quais métodos serão mais adequados às previsões de cada item. O capítulo \ref{ch:demandPatter} aborda sobre algumas metodologias que podem ser aplicadas à identificação e categorização dos diferentes padrões de demanda.
+
+Finalmente, o capítulo X aborda sobre importantes metodologias aplicadas à previsão de demanda para os diferentes padrões observados.
+
+\chapter{Método de classificação ABC}
+\label{ch:ABC}
+
+O método de classificação ABC foi desenvolvido com base na observação de Pareto, posteriormente generalizada como regra de Pareto ou regra 80-20. De acordo com essa regra, aproximadamente 20\% das causas é responsável por 80\% dos efeitos.
 
 Pela classificação ABC, os itens de inventário devem ser distribuídos em três grupos - A, B e C - com base em algum critério conhecido. Os itens classificados como A são aqueles mais importantes, os itens B são menos importantes, e os itens C não apresentam importância significativa. Para classificação dos itens é necessário inicialmente lista-los em ordem decrescente, de acordo com sua contribuição para o critério observado. Posteriormente é feita a soma acumulada das contribuições, e a distribuição dos itens entre as três categorias pode ser feita conforme sugerido na Tabela \ref{tab:ABCRules}. \\
 
@@ -115,10 +133,11 @@ Pela classificação ABC, os itens de inventário devem ser distribuídos em tr�
 grupo & percentual de itens & contribuição percentual \\ \cline {1-3}
 A & 20\% &  80\%   \\ 
 B & 30\% &  15\%   \\
-C & 50\% &  5\% \\ \cline {1-3}
+C & 50\% &  5\% \\ 
+\cline {1-3}
 \end{tabular}
+\caption{Regra sugerida para classificação ABC}
 \label{tab:ABCRules}
-\caption{Regra sugerida para classificação ABC.}
 \end{center}
 \end{table}
 
@@ -135,53 +154,53 @@ Uma importante questão a ser considerada na aplicação do método ABC é o cri
 \item comunalidade: esse aspecto diz respeito às diferentes formas de uso de um item, um item com mais utilidades é mais importante do que um item com menos utilidades.
 \end{itemize}
 
-É preciso observar que muitas vezes é necessário considerar mais do que um critério, sendo que diferentes critérios podem resultar em diferentes classificações. A literatura apresenta uma série de metodologias que podem ser aplicadas para Análises ABC com Múltiplos Critérios. A seção \ref{biCriteriaABC} apresenta um método matricial proposto por \cite{FloresWhybark1985} para classificação ABC utilizando a comparação de dois critérios. A seção apresenta uma formulação matemática, tratando o problema como um problema de designação.
+É preciso observar que muitas vezes é necessário considerar mais do que um único critério, sendo que diferentes critérios podem resultar em diferentes classificações. A literatura apresenta uma série de metodologias que podem ser aplicadas para classificação ABC com múltiplos critérios. A seção \ref{biCriteriaABC} apresenta um método matricial proposto por \cite{FloresWhybark1985} para classificação ABC utilizando a comparação de dois critérios. Este método, apesar de ser de fácil aplicação, se torna inadequado quando a classificação envolve três ou mais critérios. A seção \ref{sec:hierarquiaAnalitica} apresenta uma adaptação do método hierarquia analítica \citep{Saaty1987} para classificação ABC envolvendo multiplos critérios.
 
 \section{Classificação matricial ABC com dois critérios}
 \label{biCriteriaABC}
 
-Nesse método a classificação com dois critérios escolhidos é feita usando uma matrix de critérios conjuntos. Normalmente essa matriz terá a seguinte forma:
+Por este método a classificação com dois critérios é feita usando uma matrix de critérios conjuntos. Normalmente essa matriz apresenta forma similar à matriz apresentada na figura \ref{fig:jointMatrix}.
 
-\begin{table}[h]
+\begin{figure}[h]
 \begin{center}
 \begin{tabular}[c]{c c | c | c | c | c c c c}
 &\multicolumn{1}{c}{}  & \multicolumn{3}{c}{critério 2} \\ 
 & \multicolumn{1}{c}{} &\multicolumn{1}{c}{A} &\multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} & & \multicolumn{3}{c}{legenda} \\
 \cline {3-5}
- \multirow{3}{*}{\begin{turn}{90} critério 1 \end{turn}}  & A & \cellcolor{green} & \cellcolor{green} & \multicolumn{1}{|b|}{} & &  & \cellcolor{green} & A \\ 
+\multirow{3}{*}{\begin{turn}{90} critério 1 \end{turn}} & A & \cellcolor{green} & \cellcolor{green} & \multicolumn{1}{|b|}{} & &  & \cellcolor{green} & A \\ 
 \cline {3-5}
 & B & \cellcolor{green} &  \multicolumn{1}{|b|}{} & \cellcolor{yellow}  & & & \cellcolor{blue} & B \\
 \cline {3-5}
 & C & \multicolumn{1}{|b|}{} &  \cellcolor{yellow} & \cellcolor{yellow} & & & \cellcolor{yellow} & C\\ 
 \end{tabular}
-\label{tab:jointMatrix}
-\caption{Matriz de critérios conjuntos.}
 \end{center}
-\end{table}
+\caption{Matriz de critérios conjuntos}
+\label{fig:jointMatrix}
+\end{figure}
 
-Neste caso, itens com classificação, de acordo com primeiro e segundo critério, AA, AB ou BA, são classificados como itens do grupo A. Já os itens com classificação CA, BB, e AC são classificados como itens do grupo B. E os itens com classificação CB, BC e CC são classificados como itens do grupo C. Contudo, a forma da matriz poderá ser ajustada conforme os critérios utilizados e a avaliação da chefia. Por exemplo, caso fossem escolhidos como critérios o custo-volume e a criticidade, poderíamos adotar a seguinte forma matricial:
+Neste caso, itens com classificação, de acordo com primeiro e segundo critério, AA, AB ou BA, são classificados como itens do grupo A. Já os itens com classificação CA, BB, e AC são classificados como itens do grupo B. E os itens com classificação CB, BC e CC são classificados como itens do grupo C. Contudo, a forma da matriz poderá ser ajustada conforme os critérios utilizados e a avaliação da chefia. Por exemplo, caso fossem escolhidos como critérios o custo-volume e a criticidade, poderíamos adotar a forma matricial apresentada na figura \ref{fig:anotherJointMatrix}.
 
-\begin{table}[h]
+\begin{figure}[h]
 \begin{center}
 \begin{tabular}[c]{c c | c | c | c | c c c c}
 &\multicolumn{1}{c}{}  & \multicolumn{3}{c}{criticidade} \\ 
  \multirow{3}{*}{\begin{turn}{90} custo-volume \end{turn}} & \multicolumn{1}{c}{} &\multicolumn{1}{c}{A} &\multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} & & \multicolumn{3}{c}{legenda} \\
 \cline {3-5}
-  & A & \cellcolor{green} & \cellcolor{green} & \multicolumn{1}{|b|}{} & &  & \cellcolor{green} & A \\ 
+& A & \cellcolor{green} & \cellcolor{green} & \multicolumn{1}{|b|}{} & &  & \cellcolor{green} & A \\ 
 \cline {3-5}
 & B & \cellcolor{green} &  \multicolumn{1}{|b|}{} & \cellcolor{yellow}  & & & \cellcolor{blue} & B \\
 \cline {3-5}
 & C & \cellcolor{green} &  \cellcolor{blue} & \cellcolor{yellow} & & & \cellcolor{yellow} & C\\ 
 \end{tabular}
-\label{tab:jointMatrixCVC}
-\caption{Matriz de critérios conjuntos para os critérios custo-volume e criticidade.}
 \end{center}
-\end{table}
+\caption{Matriz de critérios conjuntos para os critérios custo-volume e criticidade}
+\label{fig:anotherJointMatrix}
+\end{figure}
 
 \section{Processo de Hierarquia Analítica}
-\label{hierarquiaAnalitica}
+\label{sec:hierarquiaAnalitica}
 
-O Processo de Hierarquia Analítica (PHA) é um método desenvolvido por Saaty em 1971 que tem como objetivo encontrar uma medida única e padronizada quando considerando vários critérios. Para apresentação de como este método pode ser utilizado para classificação ABC multicritério, estarei usando uma adaptação do exemplo apresentado em uma das publicações do autor \citep{Saaty1987}.
+O Processo de Hierarquia Analítica (PHA) é um método desenvolvido por Saaty em 1971 que tem como objetivo encontrar uma medida única e padronizada quando considerando vários critérios. Para apresentação de como este método pode ser utilizado para classificação ABC multicritério, estarei usando uma adaptação do exemplo apresentado em uma das publicações do autor \citep{Saaty1987}. Segue explicação do método:
 
 Considere que em uma empresa, foram feitas quatro classificações para os itens de inventário, utilizando para cada classificação um dos seguintes critérios: custo-volume, nível de criticidade, obsolescência e lead-time. A Tabela \ref{tab:classABC} apresenta o resultado destas classificações:
 
@@ -201,13 +220,12 @@ item & \% & & item & \% & & item & \% & & item & \% & \\
 9 & 1  & C & 9 & 1 & C  & 7 & 1 & C  & 7 & 1 & C \\
 10 & 1  & C & 10 & 1 & C & 8 & 1 & C & 8 & 1 & C \\
 \end{tabular}
+\caption{Classificação ABC para os critérios custo-volume, nível de criticidade, obsolescência e lead-time}
 \label{tab:classABC}
-\caption{Classificação ABC para os critérios custo-volume, nível de criticidade, obsolescência e lead-time.}
 \end{center}
 \end{table}
 
 O método PHA começa com a criação de uma matriz de comparação entre pares. Para criação dessa matriz, para cada par de critérios é atribuída uma importância relativa, conforme escala apresentada na Tabela \ref{tab:escalaFundamental}.
-
 
 \begin{table}[h]
 \begin{center}
@@ -221,12 +239,12 @@ em uma escala absoluta & \\
 9 & extrema importância \\
 2, 4, 6, 8 & valores intermediários (quando necessário) \\
 \end{tabular}
+\caption{Escala fundamental - fonte: adaptada de \cite{Saaty1987}}
 \label{tab:escalaFundamental}
-\caption{Escala fundamental. Fonte: adaptada de \cite{Saaty1987}.}
 \end{center}
 \end{table}
 
-A Tabela \ref{tab:matrizComparativa} apresenta uma matriz de comparação entre pares criada para o exemplo estudado.
+A Tabela \ref{tab:matrizComparativa} apresenta uma matriz de comparação entre pares que foi criada para o exemplo estudado.
 
 \begin{table}[h]
 \begin{center}
@@ -238,8 +256,8 @@ criticidade  & 7 & 1 & 2 & 3\\
 obsolescência & 5 & 1/2 & 1 & 1\\
 lead-time & 5 & 1/3 & 1 & 1\\
 \end{tabular}
+\caption{Matriz de comparação entre pares}
 \label{tab:matrizComparativa}
-\caption{Matriz de comparação entre pares.}
 \end{center}
 \end{table}
 
@@ -253,20 +271,19 @@ Para encontrar o autovetor da matriz estudada (A), precisamos inicialmente encon
 det{(A - \lambda  I)} = 0
 \end{equation}
 
-\noindent onde $I$ representa a matriz identidade. \\
+onde $I$ representa a matriz identidade.
 
 Uma vez que encontramos os autovalores, podemos encontrar os autovetores associados udando a equação:
 
-
 \begin{equation}
-(A - \lambda  I)v = \emptyset
+(A - \lambda I)v = \emptyset 
 \end{equation}
 
-onde $v$ é o autovetor associado ao autovalor $\lambda$ e $\emptyset$ representa um vetor nulo. \\
+onde $v$ é o autovetor associado ao autovalor $\lambda$ e $\emptyset$ representa um vetor nulo.
 
-Nesse caso o autovetor $v$ estará representando os pesos de cada critério estudado. \\
+Neste caso o autovetor $v$ estará representando os pesos de cada critério estudado.
 
-Exemplo de aplicação: \\
+Exemplo de aplicação:
 
 Para a nossa matriz de comparação entre pares, teremos:
 
@@ -329,17 +346,17 @@ ou, multimplicando a equação por $21/\lambda$
 21\lambda^3 - 84\lambda^2 - 19 = 0 \nonumber 
 \end{equation}
 
-Utilizando a calculadora disponível em https://www.blogcyberini.com/p/calculadora-de-equacoes-do-terceiro-grau.html, teremos o seguinte autovalor não nulo, $r_1$:\\
+Utilizando a calculadora disponível em https://www.blogcyberini.com/p/calculadora-de-equacoes-do-terceiro-grau.html, teremos o seguinte autovalor não nulo, $r_1$:
 
-$r_1 = 4.05502341900215$ \\
+$r_1 = 4.05502341900215$
 
-e o autovetor: \\
+e o autovetor:
 
-$(0.053, 0.491, 0.238, 0.213)$ \\
+$(0.053, 0.491, 0.238, 0.213)$
 
-Observe que somando os elementos do autovetor, teremos o valor $0,995$. \\
+Observe que somando os elementos do autovetor, teremos o valor $0,995$.
 
-Organizando a matriz com as classificações, temos os resultados encontrados na Tabela \ref{tab:classABCPerc}. \\
+Organizando a matriz com as classificações, temos os resultados encontrados na Tabela \ref{tab:classABCPerc}.
 
 \begin{table}[h]
 \begin{center}
@@ -356,8 +373,8 @@ item & \multicolumn{1}{c}{custo-volume} & \multicolumn{1}{c}{criticidade} & \mul
 9  &  1\% &  1\% & 20\% &  2\% \\
 10 &  1\% &  1\% &  5\% & 10\% \\
 \end{tabular}
+\caption{Classificação ABC organizada por item}
 \label{tab:classABCPerc}
-\caption{Classificação ABC organizada por item.}
 \end{center}
 \end{table}
 
@@ -411,8 +428,8 @@ item & \% acumulado \\
 10 & 98,505 \% \\
  7 & 99,500 \% \\
 \end{tabular}
+\caption{Ordenação de acordo com percentual acumulado}
 \label{tab:ordenada}
-\caption{Ordenação de acordo com percentual acumulado.}
 \end{center}
 \end{table}
 
@@ -433,17 +450,13 @@ item & \% acumulado & classificação \\
 10 &  99,000 \% & C \\
  7 & 100,000 \% & C \\
 \end{tabular}
+\caption{Classificação ABC multicritério}
 \label{tab:classABCMult}
-\caption{Classificação ABC multicritério.}
 \end{center}
 \end{table}
 
-\section{Formulação matemática}
-\label{mathForm}
-
-Considere um inventório com $I$ itens que devem ser classificados de acordo com $J$ critérios. A medida do $i$-ésimo item de acordo com o $j$-ésimo critério é representada por $y_{ij}$. Nesse senário deseja-se ordenar os itens, ou seja
-
 \chapter{Identificação de padrões de demanda}
+\label{ch:demandPatter}
 
 A previsão de demanda é essencial para o bom planejamento em qualquer empresa. Através de uma boa previsão é possível, entre outras coisas, controlar melhor os níveis de estoque, reduzindo custos e oferecendo um melhor nível de serviço aos clientes. 
 
@@ -453,17 +466,11 @@ Uma estratégia natural utilizada para identificar o modelo de previsão adequad
 
 De acordo com \cite{UlrichEtAl2022}, uma opção viável consiste em agrupar os itens de acordo com seus padrões de demanda, para posteriormente identificar o modelo de previsão adequado pra cada grupo e não mais para cada item individual. Esse capítulo apresenta, de forma bem detalhada, algumas das principais metodologias utilizadas para identificação de padrões de demanda e agrupamento dos itens de acordo com os padrões identificados.
 
-\section{Classificação ABC}
-
-O princípio de Pareto atenta para o fato de que, em muitas circunstâncias, um pequeno número de fatores são responsáveis pela maior parte impácto nos resultados \citep{HarveySotardi2018}. Este princípio é geralmente descrito como a regra 80-20, ou seja, quando 20\% dos fatores são responsáveis por 80\% do resultado. 
-
-
-
 \section{Padrões de demanda}
 
 'Os padrões de demanda são resultados da variação da demanda com o tempo, ou seja, do crescimento ou declínio de taxas de demanda, sazonalidades e flutuações gerais causadas por diversos fatores' (\cite{Ballou2001} apud \cite{WernerEtAl2006}). 
 
-De acordo com \cite{Ballou2006}, quando a demanda apresenta comportamento regular, os padrões de demanda podem ser divididos em compo­nentes de tendência, sazonais ou aleatórios. Já nos casos em que a demanda de determinados itens é inter­mitente, em função do baixo volume geral e da incerte­za quanto a quando e em que nível essa demanda ocor­rerá, a série de tempo é chamada de incerta, ou irregu­lar.
+De acordo com \cite{Ballou2006}, quando a demanda apresenta comportamento regular, os padrões de demanda podem ser divididos em compo­nentes de tendência, sazonais ou aleatórios. Já nos casos em que a demanda de determinados itens é inter­mitente, em função do baixo volume geral e da incerte­za quanto a quando e em que nível essa demanda ocorrerá, a série de tempo é chamada de incerta, ou irregu­lar.
 
 \cite{BoylanEtAl2008} distribuem os padrões de demanda entre normais, onde a demanda pode ser representada por uma distribuição normal, e não normais, no caso em que isso não é possível. De acordo com os autores, os padrões de demanda não normais podem ser classificados da seguinte forma:
 
@@ -479,164 +486,6 @@ Apesar da importância da identificação dos padrões de demanda para identific
 
 \cite{BusingerRead1999} aplicam um sistema de agrupamento de itens utilizando um diagrama de plotagem em estrela considerando oito características dos dados de séries temporais: coeficiente de variação, número de zeros, tendência, picos (outliers), sazonalidade, corridas, assimetria e autocorrelação.
 
-O coeficiente de variação $(CV)$ informa a variabilidade em relação à média. Essa medida adimensional informa o nível de dispersão: quanto mais alto for o $(CV)$, mais alta é a dispersão:
-
-\begin{equation}
-CV = \frac{s}{\bar{i}}
-\end{equation}
-
-onde: 
-
-$\bar{i}$ é a média dos valores considerados, e
-
-$s$ é o desvio padrão 
-
-\begin{equation}
-s = \sqrt{ \frac{1}{N} \sum_{i=1}^{N}{(i-\bar{i})^2}}
-\end{equation}
-
-O número de zeros $(NZ)$ é uma medida que indica o número de períodos com demanda zero (nula) dentro de determinado intervalo de tempo. 
-
-\begin{equation}
-NZ = \sum_{i=1}^{N}{I(y_i=0)}
-\end{equation}
-
-Onde $I(A)=1$, se $A$ é verdadeiro, e $I(A)=0$, se $A$ é falso.
-
-Essa medida é, em alguns casos, associada à intermitência. Sendo $BP$ um valor de corte, se $(NZ\geq BP)$ então a demanda é considerada intermitente \citep{BoylanEtAl2008}.
-
-A tendência $(T)$ apresenta um padrão de variação suave e temporário na demanda. Para cáculo da tendência, \cite{BusingerRead1999} dividem os dados avaliados em terços e calculam a tendência usando a seguinte expressão:
-
-\begin{equation}
-T = \frac{(Y_U - Y_L)}{(Y_{(\frac{5}{6})} - Y_{(\frac{1}{6})})}
-\end{equation}
-
-Onde $Y_U$ e $Y_L$ representam as medianas dos terços extremos, sendo $L$ o terço inferior, e $U$ o terço superior. Observe que $-1 \geq T \leq 1$.
-
-Picos $(P)$ é uma característica que informa sobre padrões nos dados temporais que podem representar anomalias ou dados súbitos.
-
-\begin{equation}
-P = \sum_{i=1}^{N}{I(d_i > 2)}
-\end{equation}
-
-onde:
-
-\begin{equation}
-d_i = \frac{y_i - y_{T}}{s_{T}}
-\end{equation}
-
-sendo $y_{T}$ e $s_{T}$, respectivamente, a média e o desvio padrão aparados (i.e., após retirar 20\% dos dados da amostra, sendo 10\% referente aos menores valores e 10\% referente aos maiores valores).
-
-A sazonalidade informa comportamentos que se repetem a cada ciclo (normalmente de 3 meses). \cite{BusingerRead1999} represetam a sazonalidade através da seguinte medida adimensional:
-
-\begin{equation}
-SS = 1 - \frac{ss_{w}}{ss_{T}}
-\end{equation}
-
-onde:
-
-\begin{equation}
-ss_{w} = \sum_{i=1}^{4}\sum_{j=i}^{n_i}{x_{ij}}
-\end{equation}
-
-e
-
-\begin{equation}
-ss_{T} = \sum_{i}\sum_{j}{(x_{ij}-\bar{x})^2}
-\end{equation}
-
-sendo:
-
-\begin{equation}
-\bar{x_i} = \frac{1}{n_i} \sum_{j=1}^{n_i}{x_{ij}}
-\end{equation}
-
-e
-
-\begin{equation}
-\bar{x} = \frac{1}{n} \sum_{i=1}^{4}{n_i \bar{x_i}}
-\end{equation}
-
-tal que: 
-
-$y_{i}^w$ representa os dados winsorizados (i.e. após retirar 20\% dos dados da amostra, sendo 10\% referente aos menores valores e 10\% referente aos maiores valores, substituindo esses dados, respectivamente, pelo menor e pelo maior valor dentro do intervalo de dados restantes (\%80 dos dados)); 
-
-$n=4k+r$ representa o número total de períodos para $r = 0, 1, 2, 3$, sendo o período $(n_i)$, é definido por:
-
-\begin{equation}
-n_i = 
-\begin{cases}
-4k, \ \quad \mathrm{se} \quad r =0 \\
-4k + i, \quad \mathrm{se} \quad r > 0
-\end{cases}
-\end{equation}
-
-\begin{equation}
-x_{ij} = y_{i+4(j-1)}^w \quad i = 1,...,4 \quad j=1,...,k
-\end{equation}
-
-e
-
-\begin{equation}
-x_{i(k+1)} = y_{n_i}^w \quad i = 1,...,r \quad r>0
-\end{equation}
-
-De acordo com \cite{BusingerRead1999}, a característica corrida representa um intervalo no qual observações sucessivas ocorrem todas no mesmo lado da mediana do processo. \cite{BusingerRead1999} utilizam o número de corridas acima e abaixo da mediana. Os autores afirmam que um valor baixo para o número total de corridas pode confirmar uma tendência; enquanto que um valor alto sugere agrupamento ou outro comportamento oscilatório.
-
-\begin{equation}
-Run = \frac{|R - E[R]|}{\sqrt{Var(R)}}
-\end{equation}
-
-onde: 
-
-R representa a soma dos números de corridas abaixo e acima da mediana (após exclusão dos valores iguais à mediana),
-
-\begin{equation}
-E[R] = 1 + \frac{2n_1n_2}{n_1 + n_2}
-\end{equation}
-
-\begin{equation}
-Var(R) = \frac{2n_1n_2(2n_1n_2 - n_1 - n_2)}{(n_1 + n_2)^2(n_1+n_2-1)}
-\end{equation}
-
-sendo:
-
-$n_1$ o número total de observação acima da mediana; e
-
-$n_2$ o número total de observação abaixo da mediana.
-
-A assimetria $(A)$ é a razão entre a média aritmética $(\bar{y})$ e a mediana $(m)$.
-
-\begin{equation}
-A = \frac{\bar{y}}{m}
-\end{equation}
-
-Valores de $A$ maiores que 1, indicam uma assimetria positiva, e valores de $A$ menores do que 1, indicam uma assimentria negativa.
-
-A correlação $CR$ indica a relação entre dois semestres subsequentes:
-
-\begin{equation}
-CR = \frac{|RVN-2|}{\sigma}
-\end{equation}
-
-onde:
-
-\begin{equation}
-\sigma^2 = \frac{4(n-2)(5n^2-2n-9}{5n(n+1)(n-1)^2}
-\end{equation}
-
-\begin{equation}
-RVN = \frac{12NM}{n(n^2-1)}
-\end{equation}
-
-\begin{equation}
-NM = \sum_{i=1}^{n-1}{[r_i-r_{i+1}]^2}
-\end{equation}
-
-$r_i$ representa o rank de $y_i$.
-
-Após calculadas, as características coeficiente de variação, número de zeros, tendência, picos (outliers), sazonalidade, corridas, assimetria e autocorrelação são utilizadas por \cite{BusingerRead1999} para agurpamento dos itens, sendo então identificado qual modelo ARIMA é mais adequado para cada grupo. 
-
 \cite{Williams1984} apresenta um esquema para classificação da demanda em suave (smooth), de movimento lento, ou esporádica, particionando a variabilidade da demanda durante um lead time $(C_{LTD}^{2})$ em suas partes causais constituintes: variabilidade dos números de pedidos $(\frac{C_{n}^{2}}{\bar{L}})$, variabilidade dos tamanhos dos pedidos $(\frac{C_{x}^{2}}{\bar{n}\bar{L}})$ e variabilidade dos prazos de entrega $(C_{L}^{2})$. 
 
 \begin{equation}
@@ -645,13 +494,13 @@ C_{LTD}^{2} = \frac{C_{n}^{2}}{\bar{L}} + \frac{C_{x}^{2}}{\bar{n}\bar{L}} + C_{
 
 onde:
 
-$n$ representa os números de pedidos que chegam em unidades de tempo sucessivas (variáveis randômicas independetes e identicamente distribuídas (IIDRVs), com média $\bar{n}$ e variância $var(n)$), \\
+$n$ representa os números de pedidos que chegam em unidades de tempo sucessivas (variáveis randômicas independetes e identicamente distribuídas (IIDRVs), com média $\bar{n}$ e variância $var(n)$), 
 
-$x$ representa os tamanhos dos pedidos (IIDRVs, com média $\bar{x}$ e variância $var(x)$),  \\
+$x$ representa os tamanhos dos pedidos (IIDRVs, com média $\bar{x}$ e variância $var(x)$),  
 
-$L$ representa os prazos de entrega (IIDRVs, com média $\bar{L}$ e variância $var(L)$)), e \\
+$L$ representa os prazos de entrega (IIDRVs, com média $\bar{L}$ e variância $var(L)$)), e 
 
-$C_{i}$ representa o coeficiente de variação de $i$. \\
+$C_{i}$ representa o coeficiente de variação de $i$. 
 
 Tal esquema foi posteriomente revisado por \cite{EavesKingsman2004}, considerando também o padrão de demanda irregular. A classificação adaptada por pelos autores é apresentada na tabela a seguir.
 
@@ -666,8 +515,8 @@ alto  & baixo &  & de movimento lento   \\
 alto  & alto  & baixo & intermitente   \\
 alto  & alto  & alto  & atamente intermitente\\ \cline {1-4}
 \end{tabular}
+\caption{Classificação dos padrões de demanda de acordo com \cite{EavesKingsman2004}}
 \label{tab:DemandPattern}
-\caption{Classificação dos padrões de demanda de acordo com \cite{EavesKingsman2004}.}
 \end{center}
 \end{table}
 
@@ -686,15 +535,12 @@ baixo & alto  & intermitente   \\
 alto  & baixo & errática   \\
 alto  & alto  & esporádica  \\ \cline {1-3}
 \end{tabular}
+\caption{Classificação dos padrões de demanda de acordo com \cite{SyntetosEtAl2005}}
 \label{tab:DemandPatternSybtetos}
-\caption{Classificação dos padrões de demanda de acordo com \cite{SyntetosEtAl2005}.}
 \end{center}
 \end{table}
 
-Observe que nesse esquema de classificação são definidos os pontos de corte $CV^2=0.49$ e $p=1.32$.
-
-%\bibliographystyle{acm}
-%\bibliography{Bibliography/BibFile}
+Nesse esquema de classificação são definidos os pontos de corte $CV^2=0.49$ e $p=1.32$.
 
 \begin{thebibliography}{12}
 
@@ -717,12 +563,8 @@ Eaves A.H.C., e Kingsman B.G. (2004). 'Forecasting for the ordering and stock-ho
 Flores, B.E., and Whybark, D.C. (1986). 'Multiple Criteria ABC Analysis'. {\it International Journal of Operations \& Production Management}, Vol. 6, No. 3, pp. 38--46.
 
 \bibitem[\protect\citeauthoryear{Fraga}{2019}]{Fraga2019}
-Fraga, T.B. (2019). 'Estudo de Métodos de Previsão de Demanda e Proposição de Metodologia Combinada no Contexto das Micro e Pequenas
-Empresas do Agreste Pernambucano'. Projeto de Pesquisa registrado em 09/11/2019, e aprovado pela Pró-reitoria de Pesquisa da UFPE em 11/02/2021 (Processo SIPAC 23076.057489/2019-21).
+Fraga, T.B. (2019). 'Estudo de Métodos de Previsão de Demanda e Proposição de Metodologia Combinada no Contexto das Micro e Pequenas Empresas do Agreste Pernambucano'. Projeto de Pesquisa registrado em 09/11/2019, e aprovado pela Pró-reitoria de Pesquisa da UFPE em 11/02/2021 (Processo SIPAC 23076.057489/2019-21).
 
-\bibitem[\protect\citeauthoryear{Harvey e Sotardi}{2018}]{HarveySotardi2018}
-Harvey, H.B., Sotardi, S.T. (2018). 'The Pareto Principle'. {\it Journal of the American College of Radiology}, Vol. 15 (6), pp. 931.
-    
 \bibitem[\protect\citeauthoryear{Makridakis et al.}{1998}]{MakridakisEtAl1998}
 Makridakis, S.G.,Wheelwright, S.C., Hyndman, R.J. (1998).{\it Forecasting: Methods and Applications}, 3. ed., Wiley.
 
@@ -747,3 +589,176 @@ Williams, T.M. (1984). 'Stock control with sporadic and slow-moving demand'. {\i
 \end{thebibliography}
 
 \end{document}
+
+%
+
+%
+
+%\section{Classificação ABC}
+
+%O princípio de Pareto atenta para o fato de que, em muitas circunstâncias, um pequeno número de fatores são responsáveis pela maior parte impácto nos resultados \citep{HarveySotardi2018}. Este princípio é geralmente descrito como a regra 80-20, ou seja, quando 20\% dos fatores são responsáveis por 80\% do resultado. 
+
+
+%O coeficiente de variação $(CV)$ informa a variabilidade em relação à média. Essa medida adimensional informa o nível de dispersão: quanto mais alto for o $(CV)$, mais alta é a dispersão:
+
+%\begin{equation}
+%CV = \frac{s}{\bar{i}}
+%\end{equation}
+
+%onde: 
+
+%$\bar{i}$ é a média dos valores considerados, e
+
+%$s$ é o desvio padrão 
+
+%\begin{equation}
+%s = \sqrt{ \frac{1}{N} \sum_{i=1}^{N}{(i-\bar{i})^2}}
+%\end{equation}
+
+%O número de zeros $(NZ)$ é uma medida que indica o número de períodos com demanda zero (nula) dentro de determinado intervalo de tempo. 
+
+%\begin{equation}
+%NZ = \sum_{i=1}^{N}{I(y_i=0)}
+%\end{equation}
+
+%Onde $I(A)=1$, se $A$ é verdadeiro, e $I(A)=0$, se $A$ é falso.
+
+%Essa medida é, em alguns casos, associada à intermitência. Sendo $BP$ um valor de corte, se $(NZ\geq BP)$ então a demanda é considerada intermitente \citep{BoylanEtAl2008}.
+
+%A tendência $(T)$ apresenta um padrão de variação suave e temporário na demanda. Para cáculo da tendência, \cite{BusingerRead1999} dividem os dados avaliados em terços e calculam a tendência usando a seguinte expressão:
+
+%\begin{equation}
+%T = \frac{(Y_U - Y_L)}{(Y_{(\frac{5}{6})} - Y_{(\frac{1}{6})})}
+%\end{equation}
+
+%Onde $Y_U$ e $Y_L$ representam as medianas dos terços extremos, sendo $L$ o terço inferior, e $U$ o terço superior. Observe que $-1 \geq T \leq 1$.
+
+%Picos $(P)$ é uma característica que informa sobre padrões nos dados temporais que podem representar anomalias ou dados súbitos.
+
+%\begin{equation}
+%P = \sum_{i=1}^{N}{I(d_i > 2)}
+%\end{equation}
+
+%onde:
+
+%\begin{equation}
+%d_i = \frac{y_i - y_{T}}{s_{T}}
+%\end{equation}
+
+%sendo $y_{T}$ e $s_{T}$, respectivamente, a média e o desvio padrão aparados (i.e., após retirar 20\% dos dados da amostra, sendo 10\% referente aos menores valores e 10\% referente aos maiores valores).
+
+%A sazonalidade informa comportamentos que se repetem a cada ciclo (normalmente de 3 meses). \cite{BusingerRead1999} represetam a sazonalidade através da seguinte medida adimensional:
+
+%\begin{equation}
+%SS = 1 - \frac{ss_{w}}{ss_{T}}
+%\end{equation}
+
+%onde:
+
+%\begin{equation}
+%ss_{w} = \sum_{i=1}^{4}\sum_{j=i}^{n_i}{x_{ij}}
+%\end{equation}
+
+%e
+
+%\begin{equation}
+%ss_{T} = \sum_{i}\sum_{j}{(x_{ij}-\bar{x})^2}
+%\end{equation}
+
+%sendo:
+
+%\begin{equation}
+%\bar{x_i} = \frac{1}{n_i} \sum_{j=1}^{n_i}{x_{ij}}
+%\end{equation}
+
+%e
+
+%\begin{equation}
+%\bar{x} = \frac{1}{n} \sum_{i=1}^{4}{n_i \bar{x_i}}
+%\end{equation}
+
+%tal que: 
+
+%$y_{i}^w$ representa os dados winsorizados (i.e. após retirar 20\% dos dados da amostra, sendo 10\% referente aos menores valores e 10\% referente aos maiores valores, substituindo esses dados, respectivamente, pelo menor e pelo maior valor dentro do intervalo de dados restantes (\%80 dos dados)); 
+
+%$n=4k+r$ representa o número total de períodos para $r = 0, 1, 2, 3$, sendo o período $(n_i)$, é definido por:
+
+%\begin{equation}
+%n_i = 
+%\begin{cases}
+%4k, \ \quad \mathrm{se} \quad r =0 \\
+%4k + i, \quad \mathrm{se} \quad r > 0
+%\end{cases}
+%\end{equation}
+
+%\begin{equation}
+%x_{ij} = y_{i+4(j-1)}^w \quad i = 1,...,4 \quad j=1,...,k
+%\end{equation}
+
+%e
+
+%\begin{equation}
+%x_{i(k+1)} = y_{n_i}^w \quad i = 1,...,r \quad r>0
+%\end{equation}
+
+%De acordo com \cite{BusingerRead1999}, a característica corrida representa um intervalo no qual observações sucessivas ocorrem todas no mesmo lado da mediana do processo. \cite{BusingerRead1999} utilizam o número de corridas acima e abaixo da mediana. Os autores afirmam que um valor baixo para o número total de corridas pode confirmar uma tendência; enquanto que um valor alto sugere agrupamento ou outro comportamento oscilatório.
+
+%\begin{equation}
+%Run = \frac{|R - E[R]|}{\sqrt{Var(R)}}
+%\end{equation}
+
+%onde: 
+
+%R representa a soma dos números de corridas abaixo e acima da mediana (após exclusão dos valores iguais à mediana),
+
+%\begin{equation}
+%E[R] = 1 + \frac{2n_1n_2}{n_1 + n_2}
+%\end{equation}
+
+%\begin{equation}
+%Var(R) = \frac{2n_1n_2(2n_1n_2 - n_1 - n_2)}{(n_1 + n_2)^2(n_1+n_2-1)}
+%\end{equation}
+
+%sendo:
+
+%$n_1$ o número total de observação acima da mediana; e
+
+%$n_2$ o número total de observação abaixo da mediana.
+
+%A assimetria $(A)$ é a razão entre a média aritmética $(\bar{y})$ e a mediana $(m)$.
+
+%\begin{equation}
+%A = \frac{\bar{y}}{m}
+%\end{equation}
+
+%Valores de $A$ maiores que 1, indicam uma assimetria positiva, e valores de $A$ menores do que 1, indicam uma assimentria negativa.
+
+%A correlação $CR$ indica a relação entre dois semestres subsequentes:
+
+%\begin{equation}
+%CR = \frac{|RVN-2|}{\sigma}
+%\end{equation}
+
+%onde:
+
+%\begin{equation}
+%\sigma^2 = \frac{4(n-2)(5n^2-2n-9}{5n(n+1)(n-1)^2}
+%\end{equation}
+
+%\begin{equation}
+%RVN = \frac{12NM}{n(n^2-1)}
+%\end{equation}
+
+%\begin{equation}
+%NM = \sum_{i=1}^{n-1}{[r_i-r_{i+1}]^2}
+%\end{equation}
+
+%$r_i$ representa o rank de $y_i$.
+
+%Após calculadas, as características coeficiente de variação, número de zeros, tendência, picos (outliers), sazonalidade, corridas, assimetria e autocorrelação são utilizadas por \cite{BusingerRead1999} para agurpamento dos itens, sendo então identificado qual modelo ARIMA é mais adequado para cada grupo. 
+
+%\bibliographystyle{acm}
+%\bibliography{Bibliography/BibFile}
+
+%\bibitem[\protect\citeauthoryear{Harvey e Sotardi}{2018}]{HarveySotardi2018}
+%Harvey, H.B., Sotardi, S.T. (2018). 'The Pareto Principle'. {\it Journal of the American College of Radiology}, Vol. 15 (6), pp. 931.
