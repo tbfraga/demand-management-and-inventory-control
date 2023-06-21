@@ -557,7 +557,7 @@ No trabalho de \cite{Williams1984}, esse parâmetro é chamado \emph{Demanda Dur
 
 \emph{Contrução do Método de Partição da Variância}
 
-Assumindo que: a) o número de ordens chegando em sucessivas unidades de tempos (\emph{e.g.} semanas) são variáveis randômicas, independentes e identicamente distribuídas (IIDRVs) com média $\overline{n}$ e variância $\textrm{var}(n)$; b) o tamanho das ordens são IIDRVs com média $\overline{x}$ e variância $\textrm{var}(x)$; e c) os \emph{lead times} são IIDRVs com média $\overline{L}$ e variância $\textrm{var}(L)$; a variâcia do DDLT ($Métodos da Partição da Variância$) pode ser particionada em suas três partes constituintes causais. Tal partição pode ser imprecisamente descrita como:
+Assumindo que: a) o número de ordens chegando em sucessivas unidades de tempos (\emph{e.g.} semanas) são variáveis randômicas, independentes e identicamente distribuídas (IIDRVs) com média $\overline{n}$ e variância $\textrm{var}(n)$; b) o tamanho das ordens são IIDRVs com média $\overline{x}$ e variância $\textrm{var}(x)$; e c) os \emph{lead times} são IIDRVs com média $\overline{L}$ e variância $\textrm{var}(L)$; a variâcia do DDLT (\textrm{var(DDLT)}) pode ser particionada em suas três partes constituintes causais. Tal partição pode ser imprecisamente descrita como:
 
 \begin{equation}
 \textrm{var(DDLT)} = \textrm{var devido a } n + \textrm{var devido a } x + \textrm{var devido a } L
@@ -569,7 +569,7 @@ e representada pela equação:
 \textrm{var(DDLT)} = \textrm{var}(n) \overline{x}^2 \overline{L}   + \textrm{var}(x) \overline{n} \overline{L} + \textrm{var}(L) \overline{n}^2 \overline{x}^2
 \end{equation}
 
-é possível tornar essa equação adimensional, pela equação:
+é possível tornar essa equação adimensional:
 
 \begin{equation}
 C_\textrm{DDLT}^2 = \frac{C_n^2}{\overline{L}} + \frac{C_x^2}{\overline{n} \overline{L}} + C_L^2
@@ -630,7 +630,7 @@ Passo 3: usar a Tabela \ref{tab:metodoDeWillians} para classificação dos padr�
 \item A: produtos com padrão de demanda com pouca esporadicidade;
 \item B: produtos com padrão de demanda de movimento lento;
 \item C: produtos com padrão de demanda errática;
-\item D: produtos com padrão de demanda com alte esporadicidade.
+\item D: produtos com padrão de demanda com alta esporadicidade.
 \end{itemize}
 
 
