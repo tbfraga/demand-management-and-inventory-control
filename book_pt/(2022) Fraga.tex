@@ -117,7 +117,7 @@ Como muitas organizações comercializam centenas ou até mesmo milhares de iten
 
 Uma vez que é dada uma priorização aos itens, é indispensável que seja feita análise de demanda, buscando manter em estoque a quantidade adequade dos principais itens. A análise de demanda deve começar com uma boa previsão. Contudo, há inúmeros métodos para previsão de demanda, sendo que os diferentes métodos produzirão diferentes resultados. Portanto é necessário inicialmente identificar os padrões de demanda dos principais itens, avaliando quais métodos serão mais adequados às previsões de cada item. O capítulo \ref{ch:demandPatter} aborda sobre algumas metodologias que podem ser aplicadas à identificação e categorização dos diferentes padrões de demanda.
 
-Finalmente, o capítulo X aborda sobre importantes metodologias aplicadas à previsão de demanda para os diferentes padrões observados.
+Finalmente, o capítulo \ref{metodosDePrevisão} aborda sobre importantes metodologias aplicadas à previsão de demanda relacionando tais metodologias aos diferentes padrões observados.
 
 \chapter{Método de classificação ABC}
 \label{ch:ABC}
@@ -542,6 +542,8 @@ alto  & alto  & esporádica  \\ \cline {1-3}
 
 Nesse esquema de classificação são definidos os pontos de corte $CV^2=0.49$ e $p=1.32$.
 
+Na seção a seguir o Método de Willians será explicado detalhadamente.
+
 \section{Método de Williams}
 \label{sec:williams}
 
@@ -633,8 +635,30 @@ Passo 3: usar a Tabela \ref{tab:metodoDeWillians} para classificação dos padr�
 \item D: produtos com padrão de demanda com alta esporadicidade.
 \end{itemize}
 
+\chapter{Métodos de previsão de demanda}
+\label{metodosDePrevisão}
+
+De acordo com a literatura tradicional, os métodos de previsão de demanda são classificados entre métodos quantitativos e métodos qualitativos. Os métodos qualitativos utilizam o julgamento e o conhecimento tácito como base para o estabelecimento de generalizações e extrapolações que permitirão tranformar o conhecimento e intuições em previões de tendências futuras. Entre as técnicas qualitativas destacam-se o método Delphi e a Análise de Cenários. O método Delphi estrutura o uso do conhecimento e da experiência de um grupo de especialistas para que estes possam utilizar o julgamento intuitivo a fim de chegar ao consenso sobre previsões e tendências específicas. Já na Análise de Cenários são considerados diferentes cenários para as previsões futuras com base em possíveis suposições. Nesse caso a decisão é tomada considerando os resultados e o risco de ocorrência dos diferentes cenários \citep{WankeJulianelli2006}.
+
+Os métodos quantitativos buscam nos dados históricos informações que permitam prever a demanda futura. Estes métodos são divididos entre Métodos Causais e Séries Temporais. Os Métodos Causais buscam explicar as causas que influenciam a demanda. Através destes métodos são identificadas as váriáveis que influenciam o comportamento da demanda assim como a correlação entre estas variáveis e, com base nessas identificações, são criadas relações matemáticas que serão utilizadas para as previsões do comportamento futuro da demanda. Entre os Métodos Causais mais conhecidos estão as Regressões Lineares Simples (com uma única variável independente) e as Regressões Lineares Multiplas (com duas ou mais variáveis independentes). As Séries Temporais estão entre os métodos de
+previsão de damanda mais aplicados e conhecidos. Estes métodos tratam da identificação de padrões nos dados históricos (tais como tendência, sazonalidade, ciclo e aleatoriedade) que possam ser reproduzidos para a previsão de comportamentos futuros. Entre as Séries Temporais mais conhecidas estão: as técnicas baseadas em médias (Média Simples, Média Móvel Simples, Méida Móvel Dupla); as técnicas de amortecimento exponencial (Amortecimento Exponecial Simples, Método de Brown, Método de Holt, e Método de Winter); e as técnicas de séries temporais
+em modelo aberto (Análise de Decomposição, Análise Espectral, Análise de Fourier e ARIMA) \citep{WankeJulianelli2006}.
+
+De acordo com \cite{RubioEtAl2011} dentre os métodos de análise de séries temporais baseados em modelos estatísticos, o método ARIMA (Media Móvel Atorregressiva) merece destaque. Os autores esclarecem que este método
+tem sido amplamente utilizado na literatura já que cobre uma ampla variedade de padrões, variando de séries estacionárias a não estacionárias e sazonais (cíclicas). Os autores também informam que, quando se trantando de dados não lineares, duas das principais técnicas de previsão utilizadas são Indução de Regras e Redes Neurais. As metodologias baseadas em Indução de Regras identificam padrões nos dados estudados expressando estes padrões na forma de regras. São exemplo desta classe de técnicas os Sistemas Inteligentes e os Sistemas Fuzzy. Já as metodolo-
+gias baseadas em Redes Neurais são entendidas como técnicas de aproximações universais. Isto porque estas técnicas conseguem reproduzir padrões através de simples técnicas de correlação. Como exemplo de técnicas baseadas em Redes
+Neurais temos as Funções de Base Radial, e os diversos métodos com uma ou com
+multicamadas de perceptrons.
+
+Apesar dos direcionamentos de \cite{WankeJulianelli2006}, \cite{RubioEtAl2011} e de vários outros autores, encontrar a metodologia adequada para previsão de demanda pode se tornar uma árdua tarefa. A literatura contemporânea apresenta diversos trabalhos nos quais variadas metodologias são testadas buscando previsões de demanda mais acuradas para casos reais e a variedade de aplicações é surpreendente. Como exemplo, podemos citar o trabalho de {TanizakiEtAl2019} que testam a aplicação de aproximações baseadas em aprendizagem de máquina em análise estatística para previsão de demanda em restaurantes. Os autores analisam a utilização dos métodos Regressão Linear Bayesiana, Regressão por Árvore de Decisão Impulsionada e Regressão por Floresta de Decisão para apredizado de máquina, e do método stepwise para a análise estatística. \cite{MerkuryevaEtAl2019} compara os métodos de Média Movel Simples, Regressão Múltipla e Regressão Simbólica com Algoritmos Genéticos para previsão de demanda na cadeia de suprimentos farmaceutica, demonstrando a superioridade do ultimo método. Já \cite{MaqsoodEtAl2019} testam algoritmos baseados em Regressão Linear, Regressão de Vetores de Suporte e Aprendizado Profundo para a previsão da bolsa de valores. É importante ressaltar que, conforme citado por \cite{AndrawisEtAl2011}, é um fato conhecido que a combinação de vários métodos de previsão tende a gerar resultados dramaticamente melhores. De acordo com \cite{Atiya2019}, a motivação por trás da combinação dos métodos de previsão é o fato de que os problemas de previsão geralmente possuem poucos ou limitados dados hitóricos. Assim, para o autor, do ponto de vista prático, não é possível obter a especificação correta do processo de geração de dados subjacentes. Se torna benéfico portanto proteger contra a imprecisão resultante do modelo de previsão derivado, considerando vários modelos de previsão e combinando suas previsões. Contudo, vale ainda ressaltar que, conforme observado por \cite{AndrawisEtAl2011}, o método de previsão combinado herda as performances de seus métodos constituintes e, portanto, é essencial que as diferentes metodologias sejam testadas e que sejam escolhidas aquelas que apresentam os melhores resultados.
 
 \begin{thebibliography}{12}
+
+\bibitem[\protect\citeauthoryear{Andrawis et al.}{2011}]{AndrawisEtAl2011}
+Andrawis, R. R., Atiya, A. F., e El-Shishiny, H. (2011). Forecast combinations of computational intelligence and linear models for the nn5 time series forecasting competition. {\it International Journal of Forecasting}, Vol. 27, pp. 672--688.
+
+\bibitem[\protect\citeauthoryear{Atiya}{2019}]{Atiya2019}
+Atiya, A. F. (2019). Why does forecast combination work so well ? \it{International Journal of Forecasting}, in press, corrected proof, Available online 24 May 2019.
 
 \bibitem[\protect\citeauthoryear{Ballou}{2001}]{Ballou2001}
 Ballou, R.H. (2001).{\it Gerenciamento da Cadeia de Suprimentos: Planejamento, Organização e Logística Empresarial}, 4. ed., Porto Alegre: Bookman.
@@ -663,14 +687,31 @@ Makridakis, S.G.,Wheelwright, S.C., Hyndman, R.J. (1998).{\it Forecasting: Metho
 \bibitem[\protect\citeauthoryear{Makridakis e Hibon}{2000}]{MakridakisHibon2000}
 Makridakis, S. e Hibon, M. (2000). 'The M3-Competition: results, conclusions and implications'. {\it International Journal of Forecasting}, Vol. 16, pp. 451--476.
 
+\bibitem[\protect\citeauthoryear{Maqsood et al.}{2019}]{MaqsoodEtAl2019}
+Maqsood, H., Mehmood, I., Maqsood, M., Yasir, M., e Muhammad, K. (2019). A local and global event sentiment based efficient stock exchange forecasting using deep learning. {\it International Journal of Information Management}, in
+press, corrected proof.
+
+\bibitem[\protect\citeauthoryear{Merkuryeva et al.}{2019}]{MerkuryevaEtAl2019}
+Merkuryeva, G.,Valberga,  A. , e Smirnov, A. (2019). Demand forecasting in pharmaceutical supply chains: A case study. {\it Procedia Computer Science}, Vol. 149, pp. 3--10.
+
+\bibitem[\protect\citeauthoryear{Rubio et al.}{2011}]{RubioEtAl2011}
+Rubio, G., Pomares, H., Rojas, I., e Herrera, L. J. (2011). A heuristic method for parameter selection in ls-svm: Application to time series prediction. {\it International Journal of Forecasting}, Vol. 27, pp. 725--739.
+
 \bibitem[\protect\citeauthoryear{Saaty}{1987}]{Saaty1987}
 Saaty, R.W. (1987). 'The Analytic Hierarchy Process - what it is and how it is used'. {\it Mathl Modelling}, Vol. 9, No. 3-5, pp. 161--176.
 
 \bibitem[\protect\citeauthoryear{Syntetos et al.}{2005}]{SyntetosEtAl2005}
 Syntetos, A.A., Boylan, J.E., e Croston, J.D. (2005). 'On the categorization of demand patterns'. {\it Journal of the Operational Research Society}, Vol. 56 (5), pp. 495--503.
 
+\bibitem[\protect\citeauthoryear{Tanizaki et al.}{2019}]{TanizakiEtAl2019}
+Tanizaki, T., Hoshino, T., Shimmura, T., Takenaka, T. (2019). Demand forecasting in restaurants using machine learning and statistical analysis. {\it Procedia CIRP},Vol. 79, pp. 679--683.
+
 \bibitem[\protect\citeauthoryear{Ulrich et al.}{2022}]{UlrichEtAl2022}
 Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., e Senge, R. (2022). 'Classification-based model selection in retail demand forecasting'. {\it International Journal of Forecasting}, Vol. 38 (1), pp. 209--223.
+
+\bibitem[\protect\citeauthoryear{Wanke e Julianelli}{2006}]{WankeJulianelli2006}
+Wanke, P., e Julianelli, L. (2006). {\it Previsão de vendas: processos organizacionais \& métodos quantitativos e
+qualitativos}. Editora Atlas.
 
 \bibitem[\protect\citeauthoryear{Werner et al.}{2006}]{WernerEtAl2006}
 Werner, L, Lemos, F.O., Daudt, T. (2006). 'Previsão de demanda e níveis de estoque uma abordagem conjunta aplicada no setor siderúrgico'. {\it XIII SIMPEP}, Bauru, SP, Brasil.
