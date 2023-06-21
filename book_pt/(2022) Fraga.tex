@@ -545,7 +545,7 @@ Nesse esquema de classificação são definidos os pontos de corte $CV^2=0.49$ e
 \section{Método de Williams}
 \label{sec:williams}
 
-\cite{Williams1984} propôs um método para classificação de padrão de demanda entre suave (\emph{smooth}), de movimento lento (\emph{slow moving}) e esporádico (\emph{sporadic}) particionando a variância da demanda durante um \emph{lead time} em suas partes causais. Neste livro estaremos chamando este método de Métodos da Partição da Variância ou, simplesmente, método de Williams.
+\cite{Williams1984} propôs um método para classificação de padrões de demanda entre suave (\emph{smooth}), de movimento lento (\emph{slow moving}) e esporádico (\emph{sporadic}). Neste método, o autor particiona a \emph{variância da demanda durante um lead time} em suas partes causais e usa essas informações para análise do padrão de demanda de séries temporais. Neste livro estaremos chamando este método de Método da Partição da Variância ou, simplesmente, método de Williams. A seguir eu apresento uma definição para a \emph{variância da demanda durante um lead time} e, em seguida, apresento o método de Williams sem, no entanto, estar preocupada com o rigor do desenvolvimento do método. Este desenvolvimento é detalhadamente descrito pelo autor e pode ser consultado no artigo de \cite{Williams1984}.
 
 \emph{Demanda durante um lead time}
 
@@ -553,14 +553,85 @@ Conforme informado anteriormente neste livro, \cite{BoylanEtAl2008} define um it
 
 Então, buscando criar uma medida que tenha um significado uniforme para os diferentes itens, podemos pensar em itermitência como sendo um parâmetro definido pela razão do \emph{número de pedidos} pelo \emph{lead time}.   
 
-No trabalho de \cite{Williams1984}, esse parâmetro é chamado \emph{Demanda Durante um Lead Time} (DDLT). 
+No trabalho de \cite{Williams1984}, esse parâmetro é chamado \emph{Demanda Durante um Lead Time} (DDLT). Com base neste conceito, o Métodos da Partição da Variância pode ser apresentado, conforme a seguir.
 
-No método de Williams a variâcia do DDLT ($var(DDLT)$) é particionado em suas três partes constituintes causais, conforme equação a seguir:
+\emph{Contrução do Método de Partição da Variância}
+
+Assumindo que: a) o número de ordens chegando em sucessivas unidades de tempos (\emph{e.g.} semanas) são variáveis randômicas, independentes e identicamente distribuídas (IIDRVs) com média $\overline{n}$ e variância $\textrm{var}(n)$; b) o tamanho das ordens são IIDRVs com média $\overline{x}$ e variância $\textrm{var}(x)$; e c) os \emph{lead times} são IIDRVs com média $\overline{L}$ e variância $\textrm{var}(L)$; a variâcia do DDLT ($Métodos da Partição da Variância$) pode ser particionada em suas três partes constituintes causais. Tal partição pode ser imprecisamente descrita como:
 
 \begin{equation}
-var(DDLT) = var(n) x^2 L + var(x) n L + var(l) n^2 L^2
+\textrm{var(DDLT)} = \textrm{var devido a } n + \textrm{var devido a } x + \textrm{var devido a } L
 \end{equation}
 
+e representada pela equação:
+
+\begin{equation}
+\textrm{var(DDLT)} = \textrm{var}(n) \overline{x}^2 \overline{L}   + \textrm{var}(x) \overline{n} \overline{L} + \textrm{var}(L) \overline{n}^2 \overline{x}^2
+\end{equation}
+
+é possível tornar essa equação adimensional, pela equação:
+
+\begin{equation}
+C_\textrm{DDLT}^2 = \frac{C_n^2}{\overline{L}} + \frac{C_x^2}{\overline{n} \overline{L}} + C_L^2
+\end{equation}
+
+onde $C_x$ é o coeficiente de variação do tamanho do pedido, etc. 
+
+Sendo a demanda por período ($n$) uma distribuição de Poison, com média $\lambda$, temos:
+
+\begin{equation}
+C_\textrm{DDLT}^2 = \frac{1}{\lambda \overline{L}} + \frac{C_x^2}{\lambda \overline{L}} + C_L^2
+\end{equation}
+
+E, como temos um \emph{lead time} constante, podemos usar a simplicação:
+
+\begin{equation}
+C_\textrm{DDLT}^2 = \frac{1}{\lambda \overline{L}} + \frac{C_x^2}{\lambda \overline{L}}
+\end{equation}
+
+onde $\frac{1}{\lambda \overline{L}}$ representa o número médio de \emph{lead times} entre as demandas e $\frac{C_x^2}{\lambda \overline{L}}$ é relacionado à esporacidade da demanda.
+
+Quando estes dois parâmetros são avaliados para os diferentes produtos, observamos que:
+
+\begin{itemize}
+\item os produtos \emph{não esporádicos} tendem a ter \emph{valores baixos} para estes dois parâmetros;
+\item os produtos \emph{pouco esporádicos} têm \emph{alto $\frac{1}{\lambda \overline{L}}$} mas \emph{baixo $\frac{C_x^2}{\lambda \overline{L}}$};
+\item os produtos \emph{altamente esporádicos} têm \emph{valores altos} para estes dois parâmetros.
+\end{itemize}
+
+Portanto, podemos usar a seguinte tabela de classificação:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}[c]{c c c c }
+& & $\frac{C_x^2}{\lambda \overline{L}}$ & $\frac{C_x^2}{\lambda \overline{L}}$ \\
+& & baixo & alto \\
+$\frac{1}{\lambda \overline{L}}$ & baixo & A & C \\
+$\frac{1}{\lambda \overline{L}}$ & alto & B & D \\
+\end{tabular}
+\caption{Tabela para classificação de padrões de demanda proposta por \cite{Williams1984}}
+\label{tab:metodoDeWillians}
+\end{center}
+\end{table}
+
+Onde os produtos A irão apresentar padrão de demanda com pouca esporacidade, os produtos B terão padrão de demanda de movimento lento, os produtos C terão padrão de demanda frenquente, mas com alta variação, e o produtos D terão padrão de demanda com alta esporacidade (pouca e alta demanda de forma intermitente).
+
+\emph{Método de Partição da Variância}
+
+Resumindo, o Método de Partição da Variância pode ser explicado da seguinte forma:
+
+Passo 1: para cada produto, usar o histórico de dados para calcular a média da DDLT ($\lambda$), a média dos \emph{lead times} ($\overline{L}$) e o coeficiente de variação entre os pedidos ($C_x$).
+
+Passo 2: calcular os valores dos parâmetros $\frac{1}{\lambda \overline{L}}$ e $\frac{C_x^2}{\lambda \overline{L}}$.
+
+Passo 3: usar a Tabela \ref{tab:metodoDeWillians} para classificação dos padrões de demanda dos produtos onde:
+
+\begin{itemize}
+\item A: produtos com padrão de demanda com pouca esporadicidade;
+\item B: produtos com padrão de demanda de movimento lento;
+\item C: produtos com padrão de demanda errática;
+\item D: produtos com padrão de demanda com alte esporadicidade.
+\end{itemize}
 
 
 \begin{thebibliography}{12}
