@@ -461,13 +461,13 @@ Ao definir pesos para a matriz de comparação entre pares, é importante observ
 
 \emph{critério 1: a matriz deve ser recíproca}
 
-Conforme anteriormente informado, na matriz de comparação a condição $a_{ij} = a_{ji}$ deve ser sempre satifeita. Adicionalmente os elementos da diagonal principal terão sempre valor unitário.
+Conforme anteriormente informado, na matriz de comparação, a condição $a_{ij} = a_{ji}$ deve ser sempre satifeita. Adicionalmente os elementos da diagonal principal terão sempre valor unitário.
 
 \emph{critério 2: a matriz não pode ser muito inconsistente}
 
-Uma matriz quadrada de dimensão $n$ é consistente quando o principal autovalor desta matriz tem valor $n$.
+Uma matriz quadrada de dimensão $n$ é consistente quando o principal autovalor desta matriz ($\lambda_{max}$) tem valor $n$.
 
-Para que uma matriz seja consistente, é necessário que $a_{ik} = a_{ij} * a_{jk}$. No caso da matriz de pesos apresentada na Tab. \ref{tab:matrizComparativa}, podemos obsevar que os pesos não são exatamente consistentes. Por exemplo, se olharmos para o peso da criticidade em relação à obsolescência, teríamos que $a_{23} = a_{21} * a_{13} = 7 * 1/5 = 7/5 = 1.4$, contudo na tabela temos que $a_{23} = 2 > 1.4$. Contudo, como a matriz é recíproca, essa inconsistência tende a ser conpensada de alguma forma. Na prática, teremos sempre $\lambda_{max} \geq n$.
+Para que uma matriz seja consistente, é necessário que $a_{ik} = a_{ij} * a_{jk}$. No caso da matriz de pesos apresentada na Tab. \ref{tab:matrizComparativa}, podemos obsevar que os pesos não são exatamente consistentes. Por exemplo, se olharmos para o peso da criticidade em relação à obsolescência ($a_{23}$), teríamos que $a_{23} = a_{21} * a_{13} = 7 * 1/5 = 7/5 = 1.4$, contudo na tabela temos que $a_{23} = 2 > 1.4$. Como a matriz é recíproca, essa inconsistência tende a ser conpensada de alguma forma. Na prática, teremos sempre $\lambda_{max} \geq n$.
 
 O $CI$ de uma matriz de comparação é dado por:
 
@@ -480,23 +480,27 @@ A taxa de consistência ($CR$) é obtida comparando o $CI$ com o $RI$ apropriado
 \begin{table}[h]
 \begin{center}
 \begin{tabular}[c]{c c c c c c c c c c c c}
-n & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-RI & 0 & 0 & 0.58 & 0.90 & 1.12 & 1.24 & 1.32 & 1.41 & 1.45 & 1.49 \\
+$n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+$RI$ & 0 & 0 & 0.58 & 0.90 & 1.12 & 1.24 & 1.32 & 1.41 & 1.45 & 1.49 \\
 \end{tabular}
 \caption{Index de consistência randômica. Fonte: Adaptação de \cite{Saaty1987}.}
 \label{tab:classABCMult}
 \end{center}
 \end{table}
 
+\begin{equation}
+CR = CI / RI
+\end{equation}
+
 Para nosso exemplo, temos:
 
 $CI = (4.055 - 4) / (3) =  0.018 $
 
-$RI(4) = 0.90$
+$RI(n=4) = 0.90$
 
-$RI = CI / RI = 0.02$
+$CR = CI / RI = 0.02$
 
-De acordo com \cite{Saaty1987}, é importante que a taxa de inconsistência da matriz de comparação entre os pares seja inferior à 0.10.
+De acordo com \cite{Saaty1987}, é importante que a taxa de inconsistência da matriz de comparação entre pares seja inferior à 0.10.
 
 \chapter{Identificação de padrões de demanda}
 \label{ch:demandPatter}
