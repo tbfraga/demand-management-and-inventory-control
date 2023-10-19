@@ -502,6 +502,28 @@ $CR = CI / RI = 0.02$
 
 De acordo com \cite{Saaty1987}, é importante que a taxa de inconsistência da matriz de comparação entre pares seja inferior à 0.10.
 
+Muitas vezes, é um tanto difícil garantir a consistência da matriz. Na seção à seguir, eu apresento um método iterativo para garantir a consistência.
+
+/subsection{Tornando a matriz consistente}
+
+Este método tem o seguinte princípio:
+
+1) identificar uma inconsistência (assim que possível, explico como);
+2) reduzir/aumentar o peso do elemento inconsistente ajustando o peso do elemento inverso (regra será apresentada);
+3) verificar se CR diminuiu, se diminuiu, , se não, desfazer a troca;
+   Se sim:
+    manter a troca
+   	verificar se CR está abaixo do valor aceito (0.1). S
+   		Se sim, terminar algoritmo, 
+   		Se não, voltar para o passo 1;
+   Se não
+    desfazer a troca;
+    voltar para o passo 1.
+
+A idéia do método foi criada por mim a pouco tempo, tenho certeza que irá funcionar. Mas ainda precisa ser melhor desenvolvida.
+
+Este método 
+
 \chapter{Identificação de padrões de demanda}
 \label{ch:demandPatter}
 
